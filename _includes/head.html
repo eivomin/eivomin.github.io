@@ -1,10 +1,30 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
-<link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-<title>{{ page.title | default: site.title }}</title>
-{% seo %}
-{% if site.plainwhite.dark_mode %}
-<script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>
-{% endif %}
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="{%if page.description%}{{page.description}}{%else%}{{site.data.settings.description}}{%endif%}">
+    
+  {% if site.author %}
+  <meta name="author" content="{{ . }}">
+  {% endif %}
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  {% for css in site.data.plugins.css %}
+  <link rel="stylesheet" href="{{ css | relative_url }}">
+  {% endfor %}
+
+  <!-- Main Stylesheet -->
+  <link href="{{ '/assets/scss/style.css' | relative_url }}" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="{{ '/assets/images/favicon.png' | relative_url }} " type="image/x-icon">
+  <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }} " type="image/x-icon">
+
+  <!-- google analytics -->
+  {% if site.data.settings.google-analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
+
+</head>
