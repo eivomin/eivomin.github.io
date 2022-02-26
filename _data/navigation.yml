@@ -1,0 +1,18 @@
+# main links
+main:
+  - title: "Category"
+    url: /category/
+  - title: "Algorithm"
+    url: /algorithm/
+  - title: "Baekjoon"
+    url: /baekjoon/
+  - title: "Swea"
+    url: /swea/
+  - title: "Programmers"
+    url: /programmers/
+  - title: "Java"
+    url: /java/
+  - title: "Project"
+    url: /project/
+  - title: "Job"
+    url: /job/
