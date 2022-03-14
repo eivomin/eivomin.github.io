@@ -1,0 +1,38 @@
+I"�<h2 id="level2--124나라의숫자">level2.  124나라의숫자</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv2</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level2_124나라의숫자</span> <span class="o">{</span>
+		<span class="kd">public</span> <span class="nc">String</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+		      <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+		      <span class="kt">int</span> <span class="n">quotient</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+		      <span class="kt">int</span> <span class="n">remainder</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+
+		        <span class="k">while</span><span class="o">(</span><span class="n">quotient</span><span class="o">!=</span><span class="mi">0</span><span class="o">){</span>
+		            <span class="n">remainder</span> <span class="o">=</span> <span class="n">quotient</span> <span class="o">%</span> <span class="mi">3</span><span class="o">;</span>
+		            <span class="n">quotient</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">/</span><span class="mi">3</span><span class="o">;</span>
+		            
+		            <span class="k">if</span><span class="o">(</span><span class="n">remainder</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">){</span> <span class="c1">//나누어 떨어지면 몫을 1빼주고 4를 더함</span>
+		                <span class="n">answer</span> <span class="o">=</span> <span class="s">"4"</span><span class="o">+</span><span class="n">answer</span><span class="o">;</span>
+		                <span class="n">quotient</span><span class="o">--;</span>
+		            <span class="o">}</span>
+		            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">remainder</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+		                <span class="n">answer</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">+</span><span class="n">answer</span><span class="o">;</span>
+		            <span class="o">}</span>
+		            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">remainder</span> <span class="o">==</span> <span class="mi">2</span><span class="o">){</span>
+		                <span class="n">answer</span> <span class="o">=</span> <span class="s">"2"</span><span class="o">+</span><span class="n">answer</span><span class="o">;</span>
+		            <span class="o">}</span>
+		        <span class="o">}</span>
+		        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+		       
+		    <span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+:ET

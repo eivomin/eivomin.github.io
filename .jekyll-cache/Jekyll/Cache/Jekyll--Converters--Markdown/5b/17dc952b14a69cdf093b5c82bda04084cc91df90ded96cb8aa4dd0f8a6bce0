@@ -1,0 +1,47 @@
+I"3<h2 id="1285--아름이의-돌-던지기">1285.  아름이의 돌 던지기</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<pre><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+ 
+int main(void) {
+    using namespace std;
+ 
+    int T;
+    cin &gt;&gt; T;
+    for (int tc = 1; tc &lt;= T; tc++) {
+        int N;
+        cin &gt;&gt; N;
+        int arr[1000];
+        int distance_arr[1000];
+        int distance;
+        int cnt = 0;
+        for (int i = 0; i &lt; N; i++) {
+            int temp;
+            int result = 100000;
+            cin &gt;&gt; temp;
+            arr[i] = temp;
+ 
+            distance_arr[i] = abs(arr[i] - 0);
+        }
+ 
+        int min_value = 100000;
+        for (int i = 0; i &lt; N; i++) {
+            min_value = min(min_value, distance_arr[i]);
+        }
+     
+        for (int j = 0; j &lt; N; j++) {
+            if (distance_arr[j] == min_value)
+                cnt++;
+        }
+ 
+        cout &lt;&lt; "#" &lt;&lt; tc &lt;&lt; " " &lt;&lt; min_value &lt;&lt; " " &lt;&lt; cnt &lt;&lt; '\n';
+    }
+ 
+ 
+}
+</code></pre>
+:ET

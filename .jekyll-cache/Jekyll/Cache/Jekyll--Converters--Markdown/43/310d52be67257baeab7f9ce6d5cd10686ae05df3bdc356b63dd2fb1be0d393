@@ -1,0 +1,61 @@
+I"�<h2 id="2661--좋은수열">2661.  좋은수열</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">좋은수열</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">N</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="nc">StringBuilder</span> <span class="n">sb</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="nc">String</span> <span class="n">min</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="nc">String</span> <span class="n">tmp</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+		<span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+
+		<span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+
+		<span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+
+		<span class="n">perm</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+		<span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+		<span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">perm</span><span class="o">(</span><span class="nc">StringBuilder</span> <span class="n">sb</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">check</span><span class="o">(</span><span class="n">sb</span><span class="o">))</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">perm</span><span class="o">(</span><span class="n">sb</span><span class="o">))</span>
+					<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="o">(</span><span class="nc">StringBuilder</span> <span class="n">sb2</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">sb2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">half_size</span> <span class="o">=</span> <span class="n">size</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">half_size</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">sb2</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">size</span> <span class="o">-</span> <span class="n">i</span><span class="o">,</span> <span class="n">size</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="n">sb2</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">size</span> <span class="o">-</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="o">,</span> <span class="n">size</span> <span class="o">-</span> <span class="n">i</span><span class="o">)))</span> <span class="o">{</span>
+				<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+			<span class="o">}</span>
+
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+:ET

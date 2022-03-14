@@ -1,0 +1,61 @@
+I"�<h2 id="1592--영식이와-친구들">1592.  영식이와 친구들</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span> <span class="c1">// 인원수</span>
+		<span class="kt">int</span> <span class="no">M</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span> <span class="c1">// 공 제한 횟수</span>
+		<span class="kt">int</span> <span class="no">L</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span> <span class="c1">// 넘길 번수</span>
+
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">cnt_arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+		<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+		<span class="n">cnt_arr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// 우선 1번 사람이 공 받음</span>
+		<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+		<span class="nl">label:</span> <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="no">N</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">cnt_arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="no">M</span><span class="o">)</span> <span class="o">{</span>
+					<span class="k">break</span> <span class="n">label</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+
+			<span class="k">if</span> <span class="o">(</span><span class="n">cnt_arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">((</span><span class="n">i</span> <span class="o">+</span> <span class="no">L</span><span class="o">)</span> <span class="o">%</span> <span class="no">N</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">cnt_arr</span><span class="o">[</span><span class="no">N</span><span class="o">]++;</span>
+					<span class="n">cnt</span><span class="o">++;</span>
+					<span class="n">i</span> <span class="o">=</span> <span class="no">N</span><span class="o">;</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+					<span class="n">cnt_arr</span><span class="o">[(</span><span class="n">i</span> <span class="o">+</span> <span class="no">L</span><span class="o">)</span> <span class="o">%</span> <span class="no">N</span><span class="o">]++;</span>
+					<span class="n">cnt</span><span class="o">++;</span>
+					<span class="n">i</span> <span class="o">=</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="no">L</span><span class="o">)</span> <span class="o">%</span> <span class="no">N</span><span class="o">;</span>
+
+				<span class="o">}</span>
+
+			<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span><span class="no">L</span> <span class="o">&gt;=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">cnt_arr</span><span class="o">[</span><span class="no">N</span> <span class="o">-</span> <span class="o">(</span><span class="no">L</span> <span class="o">-</span> <span class="n">i</span><span class="o">)]++;</span>
+					<span class="n">cnt</span><span class="o">++;</span>
+					<span class="n">i</span> <span class="o">=</span> <span class="no">N</span> <span class="o">-</span> <span class="o">(</span><span class="no">L</span> <span class="o">-</span> <span class="n">i</span><span class="o">);</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+					<span class="n">cnt_arr</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="no">L</span><span class="o">]++;</span>
+					<span class="n">cnt</span><span class="o">++;</span>
+					<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="no">L</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+:ET

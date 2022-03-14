@@ -1,0 +1,33 @@
+I"L<h2 id="level2--구명보트">level2.  구명보트</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_lv2_구명보트</span> <span class="o">{</span>
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">people</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+	        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">people</span><span class="o">);</span>
+	        
+	        <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+	        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">len</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="n">j</span><span class="o">&gt;=</span><span class="n">i</span><span class="o">;</span> <span class="n">j</span><span class="o">--){</span>
+	            <span class="k">if</span><span class="o">(</span><span class="n">people</span><span class="o">[</span><span class="n">j</span><span class="o">]+</span><span class="n">people</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">limit</span><span class="o">){</span>
+	                <span class="n">answer</span><span class="o">++;</span>
+	            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+	                <span class="n">answer</span><span class="o">++;</span>
+	                <span class="n">i</span><span class="o">++;</span>
+	            <span class="o">}</span>
+	        <span class="o">}</span>
+	        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

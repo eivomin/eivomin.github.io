@@ -1,0 +1,47 @@
+I"<h2 id="level3--여행경로">level3.  여행경로</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_lv3_여행경로</span> <span class="o">{</span>
+
+	<span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span><span class="o">;</span> <span class="c1">// 방문한지 안한지를 체크하는 visited배열</span>
+	<span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">answers</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nc">String</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span><span class="o">[][]</span> <span class="n">tickets</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">tickets</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+		<span class="n">answers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 몇개의 공항을 들렸는지 알려주는 카운트</span>
+		<span class="n">dfs</span><span class="o">(</span><span class="n">count</span><span class="o">,</span> <span class="s">"ICN"</span><span class="o">,</span> <span class="s">"ICN"</span><span class="o">,</span> <span class="n">tickets</span><span class="o">);</span>
+		<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">answers</span><span class="o">);</span> <span class="c1">// 답들 중 가장 알파벳순이 빠른 배열들로 정렬</span>
+		<span class="nc">String</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">answers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span> <span class="c1">// 가장 빠른 배열을 뽑아서 String형 배열로 만듦</span>
+		<span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">count</span><span class="o">,</span> <span class="nc">String</span> <span class="n">present</span><span class="o">,</span> <span class="nc">String</span> <span class="n">answer</span><span class="o">,</span> <span class="nc">String</span><span class="o">[][]</span> <span class="n">ticktes</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">ticktes</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 모든 공항을 들렸다면</span>
+			<span class="n">answers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span> <span class="c1">// answers에 추가</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ticktes</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">ticktes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="n">present</span><span class="o">))</span> <span class="o">{</span> <span class="c1">// present와 같고 들리지 않은 공항을 찾고</span>
+				<span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// 해당 공항을 들린걸로 만듦</span>
+				<span class="n">dfs</span><span class="o">(</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">ticktes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span> <span class="n">answer</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">ticktes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span> <span class="n">ticktes</span><span class="o">);</span> <span class="c1">// 카운트 +1 도착 공항을 present로 넣어주고</span>
+																						<span class="c1">// answer에 도착공항을 추가해준다.</span>
+				<span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="k">return</span><span class="o">;</span>
+
+	<span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+:ET

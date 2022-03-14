@@ -1,0 +1,30 @@
+I"
+<h2 id="level1--서울에서김서방찾기">level1.  서울에서김서방찾기</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv1</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level1_서울에서김서방찾기</span> <span class="o">{</span>
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">seoul</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+	        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"김서방은 "</span><span class="o">);</span>
+	        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">seoul</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+	            <span class="k">if</span><span class="o">(</span><span class="n">seoul</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"Kim"</span><span class="o">)){</span>
+	                <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+	                <span class="k">break</span><span class="o">;</span>
+	            <span class="o">}</span>
+	        <span class="o">}</span>
+	        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"에 있다"</span><span class="o">);</span>
+	        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+:ET

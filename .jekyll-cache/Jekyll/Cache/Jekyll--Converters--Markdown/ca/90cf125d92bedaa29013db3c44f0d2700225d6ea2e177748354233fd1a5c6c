@@ -1,0 +1,84 @@
+I"x*<h2 id="2644--촌수계산">2644.  촌수계산</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+   <span class="kd">static</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;[]</span> <span class="n">adj</span><span class="o">;</span>
+   <span class="kd">static</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span><span class="o">;</span>
+   <span class="kd">static</span> <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+   <span class="kd">static</span> <span class="kt">int</span> <span class="n">ps2</span><span class="o">;</span>
+   <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">flag</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+      <span class="kt">int</span> <span class="no">V</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span> <span class="c1">// 정점의 수</span>
+      <span class="kt">int</span> <span class="n">ps1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span> <span class="c1">// 촌수를 계산해야 하는 사람 1</span>
+      <span class="n">ps2</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span> <span class="c1">// 촌수를 계산해야 하는 사람 2</span>
+      <span class="kt">int</span> <span class="no">E</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span> <span class="c1">// 간선의 수</span>
+
+      <span class="n">adj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">[</span><span class="no">V</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+      <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="no">V</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="no">V</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+         <span class="n">adj</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+      <span class="o">}</span>
+
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">E</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+         <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+         <span class="n">adj</span><span class="o">[</span><span class="n">a</span><span class="o">].</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+         <span class="n">adj</span><span class="o">[</span><span class="n">b</span><span class="o">].</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+      <span class="o">}</span>
+
+      <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">ArrayList</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+      <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+      <span class="kt">int</span> <span class="n">qsize</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+      <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">adj</span><span class="o">[</span><span class="n">ps1</span><span class="o">]);</span>
+      <span class="n">visited</span><span class="o">[</span><span class="n">ps1</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+      <span class="kt">boolean</span> <span class="n">st</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+      <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">quesize</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+            
+         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">quesize</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">array</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+            <span class="n">qsize</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+            
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">qsize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+               <span class="k">if</span> <span class="o">(</span><span class="n">array</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">ps2</span><span class="o">)</span> <span class="o">{</span>
+                  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
+                  <span class="n">st</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                  <span class="k">return</span><span class="o">;</span>
+               <span class="o">}</span>
+
+               <span class="k">if</span> <span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">array</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)])</span> <span class="o">{</span>
+                  <span class="n">visited</span><span class="o">[</span><span class="n">array</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                  <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">adj</span><span class="o">[</span><span class="n">array</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)]);</span>
+               <span class="o">}</span>
+
+            <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="n">cnt</span><span class="o">++;</span>
+      <span class="o">}</span>
+      
+      <span class="k">if</span> <span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">ps2</span><span class="o">]</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(-</span><span class="mi">1</span><span class="o">);</span>
+         <span class="k">return</span><span class="o">;</span>
+      <span class="o">}</span>
+
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="문제점">문제점</h3>
+<p>일단 Queue에 넘겨줄 때 ArrayList 자체를 넘겨주는게 아니라 그 자식 노드 값만 넘겨주는게 좋을 것 같다.
+그리고 자바 for-each문 사용하기!</p>
+:ET

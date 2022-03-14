@@ -1,0 +1,32 @@
+I"�<h2 id="level2--카펫">level2.  카펫</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv2</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_lv2_카펫</span> <span class="o">{</span> 
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span> <span class="n">yellow</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+	        <span class="kt">int</span> <span class="n">area</span> <span class="o">=</span> <span class="n">brown</span><span class="o">+</span><span class="n">yellow</span><span class="o">;</span>
+	        
+	        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">area</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span> <span class="c1">//세로</span>
+	            <span class="k">if</span><span class="o">(</span><span class="n">area</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+	                <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">area</span><span class="o">/</span><span class="n">i</span><span class="o">;</span> <span class="c1">//가로</span>
+	                <span class="k">if</span><span class="o">((</span><span class="n">tmp</span><span class="o">-</span><span class="mi">2</span><span class="o">)*(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">)</span> <span class="o">==</span> <span class="n">yellow</span><span class="o">){</span>
+	                    <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+	                    <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+	                    <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+	                <span class="o">}</span>
+	            <span class="o">}</span>
+	        <span class="o">}</span>
+	        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

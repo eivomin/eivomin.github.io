@@ -1,0 +1,36 @@
+I"�<h2 id="level2--쇠막대기">level2.  쇠막대기</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv2</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level2_쇠막대기</span> <span class="o">{</span> 
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span> <span class="n">arrangement</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">//결과 저장할 변수</span>
+	        <span class="kt">int</span> <span class="n">stick</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">//누적 막대기의 갯수</span>
+	        
+	        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">arrangement</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++){</span>
+	            <span class="k">if</span><span class="o">(</span><span class="n">arrangement</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)==</span><span class="sc">'('</span><span class="o">){</span>
+	                <span class="n">stick</span><span class="o">++;</span>
+	            <span class="o">}</span>
+	            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">arrangement</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)==</span><span class="sc">')'</span><span class="o">){</span>
+	                <span class="n">stick</span><span class="o">--;</span>
+	                <span class="k">if</span><span class="o">(</span><span class="n">arrangement</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">)==</span><span class="sc">'('</span><span class="o">){</span>
+	                    <span class="n">answer</span> <span class="o">+=</span> <span class="n">stick</span><span class="o">;</span>
+	                <span class="o">}</span>
+	                <span class="k">else</span>
+	                    <span class="n">answer</span><span class="o">++;</span>
+	            <span class="o">}</span>
+	        <span class="o">}</span>
+	        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+:ET

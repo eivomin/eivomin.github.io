@@ -1,0 +1,89 @@
+I"�0<h2 id="level1--다트게임">level1.  다트게임</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv1</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_lv1_다트게임</span> <span class="o">{</span>
+<span class="c1">// 10을 처리하는게 어려웠던 문제</span>
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span> <span class="n">dartResult</span><span class="o">)</span> <span class="o">{</span>
+	  			<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+			<span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+
+			<span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">dartResult</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="s">""</span><span class="o">);</span>
+
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dartResult</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">dartResult</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+				<span class="k">if</span> <span class="o">(!</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">{</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span> <span class="o">+</span> <span class="s">""</span><span class="o">);</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">dartResult</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'1'</span> <span class="o">&amp;&amp;</span> <span class="n">dartResult</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">+</span><span class="s">""</span><span class="o">);</span>
+					<span class="k">continue</span><span class="o">;</span>
+				<span class="o">}</span>
+				<span class="k">else</span><span class="o">{</span>
+					<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+					<span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'1'</span> <span class="o">&amp;&amp;</span> <span class="n">dartResult</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">'0'</span> <span class="o">+</span> <span class="s">""</span><span class="o">);</span>
+						<span class="n">i</span><span class="o">++;</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+
+				<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">dartResult</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span>
+					<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+			<span class="o">}</span>
+
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="nc">String</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">k</span><span class="o">);</span>
+<span class="c1">//				System.out.println(tmp);</span>
+				<span class="kt">int</span> <span class="n">first</span> <span class="o">=</span> <span class="o">(</span><span class="n">tmp</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">);</span>
+				<span class="kt">int</span> <span class="n">pow</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+				<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">tmp</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+					<span class="k">if</span> <span class="o">(</span><span class="n">first</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">first</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+					<span class="o">}</span>
+					<span class="k">switch</span> <span class="o">(</span><span class="n">ch</span><span class="o">)</span> <span class="o">{</span>
+					<span class="k">case</span> <span class="sc">'S'</span><span class="o">:</span>
+						<span class="n">pow</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="n">first</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+						<span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*=</span> <span class="n">pow</span><span class="o">;</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="k">case</span> <span class="sc">'D'</span><span class="o">:</span>
+						<span class="n">pow</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="n">first</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+						<span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*=</span> <span class="n">pow</span><span class="o">;</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="k">case</span> <span class="sc">'T'</span><span class="o">:</span>
+						<span class="n">pow</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="n">first</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+						<span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*=</span> <span class="n">pow</span><span class="o">;</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="k">case</span> <span class="sc">'*'</span><span class="o">:</span>
+						<span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">;</span>
+						<span class="k">if</span> <span class="o">(</span><span class="n">k</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span>
+							<span class="n">arr</span><span class="o">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">;</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="k">case</span> <span class="sc">'#'</span><span class="o">:</span>
+						<span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*=</span> <span class="o">(-</span><span class="mi">1</span><span class="o">);</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+
+			<span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">arr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">arr</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

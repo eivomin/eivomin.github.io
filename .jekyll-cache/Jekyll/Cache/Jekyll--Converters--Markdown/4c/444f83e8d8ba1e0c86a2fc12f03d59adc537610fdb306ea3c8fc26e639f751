@@ -1,0 +1,83 @@
+I""+<h2 id="level1--실패율">level1.  실패율</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv1</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">User</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">idx</span><span class="o">;</span>
+	<span class="kt">double</span> <span class="n">failrate</span><span class="o">;</span>
+
+	<span class="nc">User</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="kt">double</span> <span class="n">failrate</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">failrate</span> <span class="o">=</span> <span class="n">failrate</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">User</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">failrate</span> <span class="o">&lt;</span> <span class="n">o</span><span class="o">.</span><span class="na">failrate</span><span class="o">)</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">failrate</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="na">failrate</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">idx</span> <span class="o">&lt;</span> <span class="n">o</span><span class="o">.</span><span class="na">idx</span><span class="o">)</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+            <span class="k">else</span>
+                <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level1_실패율</span> <span class="o">{</span>
+
+		<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="no">N</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">stages</span><span class="o">)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">user</span> <span class="o">=</span> <span class="n">stages</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
+			<span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">s</span> <span class="o">:</span> <span class="n">stages</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">s</span> <span class="o">&lt;=</span> <span class="no">N</span><span class="o">)</span>
+					<span class="n">answer</span><span class="o">[</span><span class="n">s</span><span class="o">]++;</span>
+			<span class="o">}</span>
+			
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">answer</span><span class="o">));</span>
+			<span class="kt">int</span> <span class="n">user_num</span> <span class="o">=</span> <span class="n">user</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+	            <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+	            <span class="k">if</span><span class="o">(</span><span class="n">tmp</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">user_num</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+	            	<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">));</span>
+	            	<span class="k">continue</span><span class="o">;</span>
+	            <span class="o">}</span>
+	            <span class="k">if</span><span class="o">(</span><span class="n">user_num</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+	            	<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">));</span>
+	            	<span class="k">continue</span><span class="o">;</span>	
+	            <span class="o">}</span>
+	            <span class="k">else</span>	
+	            	<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="o">(</span><span class="kt">double</span><span class="o">)</span><span class="n">tmp</span><span class="o">/</span><span class="n">user_num</span><span class="o">));</span>
+	            <span class="n">user_num</span> <span class="o">-=</span> <span class="n">tmp</span><span class="o">;</span>
+	        <span class="o">}</span>
+
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">idx</span><span class="o">+</span><span class="s">"  "</span><span class="o">+</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">failrate</span><span class="o">);</span>
+			<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">idx</span><span class="o">;</span>
+			<span class="o">}</span>
+
+			<span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+		<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">stages</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">solution</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span><span class="n">stages</span><span class="o">)));</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,47 @@
+I"�<h2 id="2001--파리-퇴치">2001.  파리 퇴치</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<p>```java
+import java.util.Scanner;</p>
+
+<p>public class Solution {</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>static int N;
+static int M;
+ 
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+ 
+    int T = sc.nextInt();
+    for (int tc = 1; tc &lt;= T; tc++) {
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int[][] arr = new int[N][N];
+ 
+        for (int i = 0; i &lt; N; i++) {
+            for (int j = 0; j &lt; N; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+ 
+        int sum=0,max = 0;
+        for(int i=0; i&lt;N-M+1; i++) {
+            for(int j=0; j&lt;N-M+1; j++) {
+                sum = 0;
+                for(int k=0; k&lt;M; k++) {
+                    for(int l=0; l&lt;M; l++) {
+                        sum += arr[i+k][j+l];
+                    }    
+                }
+                if( sum &gt; max ) max = sum;
+            }
+        }
+        System.out.println("#" + tc + " " + max);
+ 
+    }
+} }```
+</code></pre></div></div>
+:ET

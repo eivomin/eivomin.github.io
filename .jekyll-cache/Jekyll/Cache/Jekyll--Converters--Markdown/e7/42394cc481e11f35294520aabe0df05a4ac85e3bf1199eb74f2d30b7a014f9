@@ -1,0 +1,55 @@
+I"� <h2 id="level3--가장긴팰린드롬">level3.  가장긴팰린드롬</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv3</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_lv3_가장긴팰린드롬</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">oddCount</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">evenCount</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>            <span class="c1">//길이가 1이면 1반환</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>  <span class="c1">//홀 수</span>
+                <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+                <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+                <span class="kt">int</span> <span class="n">tempcount</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="k">while</span><span class="o">(</span><span class="mi">0</span><span class="o">&lt;=</span> <span class="n">left</span> <span class="o">&amp;&amp;</span>  <span class="n">right</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>    <span class="c1">//현재 값보다 왼쪽, 오른쪽 값이 같으면</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">))</span> <span class="o">{</span>
+                        <span class="n">tempcount</span><span class="o">++;</span>
+                        <span class="n">left</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">;</span>
+                        <span class="n">right</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+                    <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                        <span class="k">break</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">oddCount</span><span class="o">&lt;</span> <span class="n">tempcount</span><span class="o">)</span> <span class="n">oddCount</span> <span class="o">=</span> <span class="n">tempcount</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>            <span class="c1">//짝 수</span>
+                <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+                <span class="kt">int</span> <span class="n">tempcount</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="k">while</span><span class="o">(</span><span class="mi">0</span><span class="o">&lt;=</span> <span class="n">left</span> <span class="o">&amp;&amp;</span>  <span class="n">right</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span> <span class="c1">//현재값과 다음값이 같다면.</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">))</span> <span class="o">{</span>
+                        <span class="n">tempcount</span><span class="o">++;</span>
+                        <span class="n">left</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">;</span>
+                        <span class="n">right</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+                    <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                        <span class="k">break</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">evenCount</span> <span class="o">&lt;</span> <span class="n">tempcount</span><span class="o">)</span> <span class="n">evenCount</span> <span class="o">=</span> <span class="n">tempcount</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">oddCount</span> <span class="o">&lt;</span> <span class="n">evenCount</span> <span class="o">?</span> <span class="n">evenCount</span><span class="o">*</span><span class="mi">2</span> <span class="o">:</span> <span class="n">oddCount</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span><span class="mi">1</span><span class="o">;</span> 
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

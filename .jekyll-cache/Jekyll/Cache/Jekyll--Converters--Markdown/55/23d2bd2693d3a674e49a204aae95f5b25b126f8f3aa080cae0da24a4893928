@@ -1,0 +1,82 @@
+I"k#<h2 id="13549--숨바꼭질3">13549.  숨바꼭질3</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Node6</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="n">cnt</span><span class="o">;</span>
+
+	<span class="nc">Node6</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">cnt</span> <span class="o">=</span> <span class="n">cnt</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">숨바꼭질3</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">dr</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span> <span class="o">};</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">nr</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="no">K</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">100001</span><span class="o">];</span>
+
+		<span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Node6</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+		<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Node6</span><span class="o">(</span><span class="no">N</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
+		<span class="n">visited</span><span class="o">[</span><span class="no">N</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+		<span class="kt">int</span> <span class="n">qsize</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+		<span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="n">qsize</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">qsize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="nc">Node6</span> <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+
+				<span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">idx</span> <span class="o">==</span> <span class="no">K</span><span class="o">)</span> <span class="o">{</span>
+					<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">level</span> <span class="o">-</span> <span class="n">node</span><span class="o">.</span><span class="na">cnt</span><span class="o">);</span>
+					<span class="k">return</span><span class="o">;</span>
+				<span class="o">}</span>
+
+				<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">;</span> <span class="n">d</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="kt">int</span> <span class="n">current_cnt</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">cnt</span><span class="o">;</span>
+
+					<span class="k">if</span> <span class="o">(</span><span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">nr</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">idx</span> <span class="o">*</span> <span class="n">dr</span><span class="o">[</span><span class="n">d</span><span class="o">];</span>
+						<span class="n">current_cnt</span><span class="o">++;</span>
+					<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">nr</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">idx</span> <span class="o">+</span> <span class="n">dr</span><span class="o">[</span><span class="n">d</span><span class="o">];</span>
+					<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">d</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">nr</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">idx</span> <span class="o">+</span> <span class="n">dr</span><span class="o">[</span><span class="n">d</span><span class="o">];</span>
+					<span class="o">}</span>
+
+					<span class="k">if</span> <span class="o">(</span><span class="n">nr</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nr</span> <span class="o">&lt;=</span> <span class="mi">100000</span><span class="o">)</span> <span class="o">{</span>
+						<span class="k">if</span> <span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">nr</span><span class="o">])</span> <span class="o">{</span>
+							<span class="n">visited</span><span class="o">[</span><span class="n">nr</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+							<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Node6</span><span class="o">(</span><span class="n">nr</span><span class="o">,</span> <span class="n">current_cnt</span><span class="o">));</span>
+						<span class="o">}</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+
+			<span class="o">}</span>
+			<span class="n">level</span><span class="o">++;</span>
+
+		<span class="o">}</span>
+
+	<span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="tip">Tip</h3>
+<p>2, -1, 1 순서
+총 level에서 2 횟수 빼주기</p>
+
+:ET

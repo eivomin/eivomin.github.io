@@ -1,0 +1,75 @@
+I"_*<h2 id="6808--규영이와-인영이의-카드게임">6808.  규영이와 인영이의 카드게임</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+ 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span><span class="o">;</span>
+    <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span><span class="o">;</span>
+    <span class="kd">static</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">9</span><span class="o">];</span>
+    <span class="kd">static</span> <span class="kt">int</span> <span class="n">win_cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kd">static</span> <span class="kt">int</span> <span class="n">lose_cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+ 
+    <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+ 
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+ 
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">tc</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">tc</span> <span class="o">&lt;=</span> <span class="no">T</span><span class="o">;</span> <span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
+ 
+            <span class="n">arr1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">9</span><span class="o">];</span>
+            <span class="n">arr2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">9</span><span class="o">];</span>
+            <span class="kt">int</span><span class="o">[]</span> <span class="n">check</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">19</span><span class="o">];</span>
+ 
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">arr1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span> <span class="c1">// 규영이 카드</span>
+            <span class="o">}</span>
+ 
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">check</span><span class="o">[(</span><span class="n">arr1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)]++;</span> <span class="c1">// 인영이 카드</span>
+            <span class="o">}</span>
+ 
+            <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">17</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">check</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">idx</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="o">)</span>
+                        <span class="n">arr2</span><span class="o">[</span><span class="n">idx</span><span class="o">++]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">}</span>
+ 
+            <span class="o">}</span>
+ 
+            <span class="n">dfs</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span> <span class="o">+</span> <span class="n">tc</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">win_cnt</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">lose_cnt</span><span class="o">);</span>
+            <span class="n">win_cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="n">lose_cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+ 
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="kt">int</span> <span class="n">score1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">score2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">idx</span> <span class="o">==</span> <span class="mi">9</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 총 아홉라운드</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">score1</span> <span class="o">&gt;</span> <span class="n">score2</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">win_cnt</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">score1</span> <span class="o">&lt;</span> <span class="n">score2</span><span class="o">)</span>
+                <span class="n">lose_cnt</span><span class="o">++;</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+ 
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">arr2</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">arr1</span><span class="o">[</span><span class="n">idx</span><span class="o">])</span>
+                    <span class="n">dfs</span><span class="o">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">score1</span> <span class="o">+</span> <span class="n">arr1</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">+</span> <span class="n">arr2</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">score2</span><span class="o">);</span>
+                <span class="k">else</span>
+                    <span class="nf">dfs</span><span class="o">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">score1</span><span class="o">,</span> <span class="n">score2</span> <span class="o">+</span> <span class="n">arr1</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">+</span> <span class="n">arr2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+                <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+:ET

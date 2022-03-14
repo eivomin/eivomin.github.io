@@ -1,0 +1,31 @@
+I"�<h2 id="level1--2016년">level1.  2016년</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">level1</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level1_2016년</span> <span class="o">{</span>
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="kt">int</span><span class="o">[]</span> <span class="n">day</span> <span class="o">=</span> <span class="o">{</span><span class="mi">31</span><span class="o">,</span> <span class="mi">29</span><span class="o">,</span> <span class="mi">31</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">31</span><span class="o">,</span><span class="mi">30</span><span class="o">,</span> <span class="mi">31</span><span class="o">,</span> <span class="mi">31</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">31</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">31</span><span class="o">};</span>
+	        <span class="nc">String</span><span class="o">[]</span> <span class="n">month</span> <span class="o">=</span> <span class="o">{</span><span class="s">"SUN"</span><span class="o">,</span> <span class="s">"MON"</span><span class="o">,</span> <span class="s">"TUE"</span><span class="o">,</span> <span class="s">"WED"</span><span class="o">,</span> <span class="s">"THU"</span><span class="o">,</span> <span class="s">"FRI"</span><span class="o">,</span> <span class="s">"SAT"</span><span class="o">};</span>
+	        <span class="kt">int</span> <span class="n">totalDay</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	        
+	        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">a</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+	            <span class="n">totalDay</span> <span class="o">+=</span> <span class="n">day</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+	        <span class="n">totalDay</span> <span class="o">-=</span> <span class="o">(</span><span class="mi">1</span><span class="o">+</span><span class="n">day</span><span class="o">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="o">]-</span><span class="n">b</span><span class="o">);</span>
+	        
+	        <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">totalDay</span><span class="o">%</span><span class="mi">7</span><span class="o">;</span>
+	        <span class="k">if</span><span class="o">(</span><span class="mi">5</span><span class="o">+</span><span class="n">cnt</span><span class="o">&gt;=</span><span class="mi">7</span><span class="o">)</span>
+	            <span class="k">return</span> <span class="n">month</span><span class="o">[</span><span class="mi">5</span><span class="o">+</span><span class="n">cnt</span><span class="o">-</span><span class="mi">7</span><span class="o">];</span>
+	        <span class="k">else</span>
+	            <span class="k">return</span> <span class="n">month</span><span class="o">[</span><span class="mi">5</span><span class="o">+</span><span class="n">cnt</span><span class="o">];</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

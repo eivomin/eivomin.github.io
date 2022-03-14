@@ -1,0 +1,48 @@
+I"a<h2 id="level3--단어변환">level3.  단어변환</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv3</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_lv3_단어변환</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">answer</span><span class="o">;</span> <span class="c1">// 최소 단계</span>
+	<span class="kt">boolean</span><span class="o">[]</span> <span class="n">used</span><span class="o">;</span> <span class="c1">// 단어를 사용 중인지를 판단하는 visited와 같은 역할을 하는 배열</span>
+
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span> <span class="n">begin</span><span class="o">,</span> <span class="nc">String</span> <span class="n">target</span><span class="o">,</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">words</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">answer</span> <span class="o">=</span> <span class="mi">51</span><span class="o">;</span> <span class="c1">// 단어 최대값이 50이므로</span>
+		<span class="n">used</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+		<span class="n">dfs</span><span class="o">(</span><span class="n">begin</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">words</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">answer</span> <span class="o">==</span> <span class="mi">51</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">answer</span><span class="o">;</span> <span class="c1">// answer이 51이면 target과 같은 단어가 없는 것으로 판단.</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="nc">String</span> <span class="n">presentWord</span><span class="o">,</span> <span class="nc">String</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span> <span class="n">count</span><span class="o">,</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">words</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">presentWord</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">target</span><span class="o">))</span> <span class="o">{</span>
+			<span class="n">answer</span> <span class="o">=</span> <span class="o">(</span><span class="n">answer</span> <span class="o">&gt;</span> <span class="n">count</span><span class="o">)</span> <span class="o">?</span> <span class="n">count</span> <span class="o">:</span> <span class="n">answer</span><span class="o">;</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span> <span class="c1">// 탐색한 글자중 하나만 차이나고 탐색되지 않은 글자이 있다면. dfs 수행</span>
+			<span class="k">if</span> <span class="o">(!</span><span class="n">used</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">check</span><span class="o">(</span><span class="n">presentWord</span><span class="o">,</span> <span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span> <span class="o">{</span>
+				<span class="n">used</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+				<span class="n">dfs</span><span class="o">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">target</span><span class="o">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">words</span><span class="o">);</span>
+				<span class="n">used</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="o">(</span><span class="nc">String</span> <span class="n">presentWord</span><span class="o">,</span> <span class="nc">String</span> <span class="n">nextWord</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 현재의 단어와 다음 단어가 바뀔 조건에 일치하는가를 체크</span>
+		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">presentWord</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">presentWord</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">nextWord</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">count</span><span class="o">++;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,82 @@
+I"o)<h2 id="5430--ac">5430.  AC</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="err">덱;</span>
+
+<span class="nn">import</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.*;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">boj_5430_AC</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">deque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">T</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">char</span><span class="o">[]</span> <span class="n">command</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+			<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+			<span class="nc">String</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+			<span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+			<span class="nc">String</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span>
+				<span class="n">deque</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">arr2</span><span class="o">[</span><span class="n">j</span><span class="o">]));</span>
+
+			<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="kt">boolean</span> <span class="n">flag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// 그대로</span>
+			<span class="kt">boolean</span> <span class="n">errflag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+			<span class="nl">label:</span> <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">command</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">switch</span> <span class="o">(</span><span class="n">command</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+				<span class="k">case</span> <span class="sc">'R'</span><span class="o">:</span>
+					<span class="n">cnt</span><span class="o">++;</span>
+					<span class="k">if</span> <span class="o">(</span><span class="n">cnt</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 반대로</span>
+						<span class="n">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+					<span class="o">}</span> <span class="k">else</span>
+						<span class="n">flag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="k">case</span> <span class="sc">'D'</span><span class="o">:</span>
+					<span class="k">if</span> <span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+						<span class="n">errflag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+						<span class="k">break</span> <span class="n">label</span><span class="o">;</span>
+					<span class="o">}</span>
+					<span class="k">if</span> <span class="o">(</span><span class="n">flag</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">deque</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
+					<span class="o">}</span> <span class="k">else</span>
+						<span class="n">deque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">();</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+
+			<span class="k">if</span> <span class="o">(</span><span class="n">errflag</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"error"</span><span class="o">);</span>
+				<span class="k">continue</span><span class="o">;</span>
+			<span class="o">}</span>
+
+			<span class="k">if</span> <span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[]"</span><span class="o">);</span>
+				<span class="k">continue</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+			
+			<span class="k">if</span> <span class="o">(!</span><span class="n">flag</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 그대로</span>
+				<span class="k">while</span> <span class="o">(!</span><span class="n">deque</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">()</span> <span class="o">+</span> <span class="s">","</span><span class="o">);</span>
+			<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+				<span class="k">while</span> <span class="o">(!</span><span class="n">deque</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pollLast</span><span class="o">()</span> <span class="o">+</span> <span class="s">","</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+:ET

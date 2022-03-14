@@ -1,0 +1,36 @@
+I"<h2 id="level1--콜라츠추측">level1.  콜라츠추측</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv1</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level1_콜라츠추측</span> <span class="o">{</span>
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	        <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="n">num</span><span class="o">;</span>
+	        <span class="k">while</span><span class="o">(</span><span class="n">n</span><span class="o">!=</span><span class="mi">1</span><span class="o">){</span>
+	            <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span>
+	                <span class="n">n</span> <span class="o">/=</span> <span class="mi">2</span><span class="o">;</span>
+	            <span class="k">else</span>
+	                <span class="n">n</span> <span class="o">=</span> <span class="o">(</span><span class="n">n</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+	            <span class="n">answer</span><span class="o">++;</span>
+	        <span class="o">}</span>
+	        <span class="k">if</span><span class="o">(</span><span class="n">answer</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="o">)</span>
+	            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+	        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="o">)</span>
+	            <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+	        <span class="k">else</span>
+	            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+:ET

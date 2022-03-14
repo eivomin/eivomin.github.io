@@ -1,0 +1,37 @@
+I"<h2 id="level3--최고의집합">level3.  최고의집합</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv3</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_lv3_최고의집합</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{-</span><span class="mi">1</span><span class="o">};</span>
+        <span class="o">}</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">s</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="o">{</span>        <span class="c1">//나눠지는 경우</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">n</span><span class="o">;</span>
+            <span class="o">}</span>
+            
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>                <span class="c1">//안나눠지는 경우</span>
+            <span class="kt">int</span> <span class="n">rem</span> <span class="o">=</span> <span class="n">s</span> <span class="o">%</span> <span class="n">n</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">po</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">rem</span><span class="o">;</span>    <span class="c1">//1씩 더해줘야하는 인덱스 위치</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">po</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>  <span class="c1">//po까지는 원래대로 추가</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">n</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">po</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>  <span class="c1">//po부터 n까지는 1씩 추가</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">n</span> <span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

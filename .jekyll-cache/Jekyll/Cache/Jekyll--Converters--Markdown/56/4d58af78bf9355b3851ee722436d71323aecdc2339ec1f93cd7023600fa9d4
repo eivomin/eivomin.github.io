@@ -1,0 +1,46 @@
+I"�<h2 id="level3--섬연결하기">level3.  섬연결하기</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_lv3_섬연결하기</span> <span class="o">{</span>
+
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">findParent</span><span class="o">;</span>		<span class="c1">// 부모와 자식의 정보가 담긴 배열</span>
+
+		<span class="kd">public</span> <span class="kt">int</span> <span class="nf">find</span><span class="o">(</span><span class="kt">int</span> <span class="n">child</span><span class="o">)</span> <span class="o">{</span>		<span class="c1">// 부모 찾기</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">findParent</span><span class="o">[</span><span class="n">child</span><span class="o">]</span> <span class="o">==</span> <span class="n">child</span><span class="o">)</span>
+				<span class="k">return</span> <span class="n">child</span><span class="o">;</span>
+			<span class="k">else</span>
+				<span class="k">return</span> <span class="n">findParent</span><span class="o">[</span><span class="n">child</span><span class="o">]</span> <span class="o">=</span> <span class="n">find</span><span class="o">(</span><span class="n">findParent</span><span class="o">[</span><span class="n">child</span><span class="o">]);</span>
+		<span class="o">}</span>
+
+		<span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">costs</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">costs</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="mi">2</span><span class="o">]);</span>		<span class="c1">// 가중치 기준으로 오름차순 정렬</span>
+
+			<span class="n">findParent</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>		<span class="c1">// 초기배열에서 부모는 자기 자신</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+				<span class="n">findParent</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+
+			<span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">costs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">firstIsland</span> <span class="o">=</span> <span class="n">find</span><span class="o">(</span><span class="n">costs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]);</span>
+				<span class="kt">int</span> <span class="n">secondIsland</span> <span class="o">=</span> <span class="n">find</span><span class="o">(</span><span class="n">costs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">firstIsland</span> <span class="o">!=</span> <span class="n">secondIsland</span><span class="o">)</span> <span class="o">{</span>		<span class="c1">// 부모가 같지 않다면 연결이 안된 최솟값이므로</span>
+					<span class="n">findParent</span><span class="o">[</span><span class="n">secondIsland</span><span class="o">]</span> <span class="o">=</span> <span class="n">firstIsland</span><span class="o">;</span>		<span class="c1">//연결</span>
+					<span class="n">answer</span> <span class="o">+=</span> <span class="n">costs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,29 @@
+I"�<h2 id="level1--하샤드수">level1.  하샤드수</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv1</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level1_하샤드수</span> <span class="o">{</span>
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+	        <span class="k">while</span><span class="o">(</span><span class="n">num</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">){</span>
+	            <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">%</span><span class="mi">10</span><span class="o">;</span>
+	            <span class="n">num</span> <span class="o">/=</span> <span class="mi">10</span><span class="o">;</span>
+	        <span class="o">}</span>
+	        <span class="k">if</span><span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">sum</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+	            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	        <span class="k">else</span>
+	            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,31 @@
+I"�<h2 id="level2--전화번호목록">level2.  전화번호목록</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv2</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level2_전화번호목록</span> <span class="o">{</span>
+
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">phone_book</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="kt">boolean</span> <span class="n">answer</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+	        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+	            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++){</span>
+	                <span class="k">if</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">startsWith</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">j</span><span class="o">]))</span>
+	                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	                <span class="k">if</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">startsWith</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span>
+	                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	            <span class="o">}</span>
+	        <span class="o">}</span>
+	        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+:ET

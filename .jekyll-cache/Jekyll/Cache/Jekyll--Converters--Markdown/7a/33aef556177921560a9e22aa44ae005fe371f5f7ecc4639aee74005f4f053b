@@ -1,0 +1,25 @@
+I"�<h2 id="level1--핸드폰번호가리기">level1.  핸드폰번호가리기</h2>
+
+<hr />
+
+<h3 id="code">Code</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">lv1</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">programmers_level1_핸드폰번호가리기</span> <span class="o">{</span>
+	<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span> <span class="n">phone_number</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+	        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">phone_number</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+	        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="o">-</span><span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+	            <span class="n">answer</span> <span class="o">+=</span> <span class="s">"*"</span><span class="o">;</span>
+	        <span class="o">}</span>
+	        <span class="n">answer</span> <span class="o">+=</span> <span class="n">phone_number</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">len</span><span class="o">-</span><span class="mi">4</span><span class="o">,</span> <span class="n">len</span><span class="o">);</span>
+	        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+	    <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET
