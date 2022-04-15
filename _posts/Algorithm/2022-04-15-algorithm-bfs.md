@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[Algorithm] BFS "
+title: "[Algorithm] BFS"
 comments: true
 category: Algorithm
 ---
