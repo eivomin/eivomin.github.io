@@ -22,9 +22,9 @@ category: Java
 * replaceAll(String regex, String replacement) : replace()와 비슷하나, 첫번째 인자로 정규식을 넣는다.
 * replaceFirst(String target, String replacement) : 첫번째 발견되는 target만 치환한다.
 ```java
-String str = "a,b,c,d,e";
-        System.out.println(str.replaceFirst(",", " ")); // a b,c,d,e
-        System.out.println(str.replaceFirst(",", "")); // ab,c,d,e
+    String str = "a,b,c,d,e";
+    System.out.println(str.replaceFirst(",", " ")); // a b,c,d,e
+    System.out.println(str.replaceFirst(",", "")); // ab,c,d,e
 ```
 
 ### Substring()
@@ -62,4 +62,4 @@ String str = "a,b,c,d,e";
     String[] splited2 = str.split(" "); // splited2[0]: aaa, splited2[1]: bbb, splited2[2]: ccc
 ```
 
-* 출처: 이것이 자바다, 98page
+* 출처: 이것이 자바다
