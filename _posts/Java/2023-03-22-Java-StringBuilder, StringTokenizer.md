@@ -49,11 +49,13 @@ public class StringBuilderExample {
     String data = "홍길동/이수홍/박연수";
     StringTokenizer st = new StringTokenizer(data, "/");
 ```
+
 | 리턴타입    | 메소드(매개변수)       | 설명              |
 |---------|-----------------|-----------------|
-| int     | countTokens() 옴 | 분리할 수 있는 문자열의 총 수 |
+| int     | countTokens()  | 분리할 수 있는 문자열의 총 수 |
 | boolean | hasMoreTokens() | 남아 있는 문자열이 있는지 여부 |
-| String  | nextToken()     | 문자열을 하나씩 가져     |
+| String  | nextToken()     | 문자열을 하나씩 가져옴     |
+
 
 ```java
 package ch12.sec05;
