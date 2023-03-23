@@ -1,0 +1,60 @@
+I"	<h2 id="string-문자열-관련-method">String 문자열 관련 Method</h2>
+
+<hr />
+
+<h3 id="replace-replaceall-replacefirst">replace(), replaceAll(), replaceFirst()</h3>
+<p>문자열을 다른 문자열로 치환할 때 사용.
+치환 메소드이긴 한데 주로 문자열에서 특정 문자를 삭제할 때 유용하게 사용한다.</p>
+<ul>
+  <li>replace(CharSequence target, CharSequence replacement) : 모든 target replacement로 치환</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"a,b,c,d,e"</span><span class="o">;</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="s">","</span><span class="o">,</span> <span class="s">" "</span><span class="o">));</span> <span class="c1">// a b c d e</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="s">","</span><span class="o">,</span> <span class="s">""</span><span class="o">));</span> <span class="c1">// abcde</span>
+</code></pre></div></div>
+<ul>
+  <li>replaceAll(String regex, String replacement) : replace()와 비슷하나, 첫번째 인자로 정규식을 넣는다.</li>
+  <li>replaceFirst(String target, String replacement) : 첫번째 발견되는 target만 치환한다.
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"a,b,c,d,e"</span><span class="o">;</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="s">","</span><span class="o">,</span> <span class="s">" "</span><span class="o">));</span> <span class="c1">// a b,c,d,e</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="s">","</span><span class="o">,</span> <span class="s">""</span><span class="o">));</span> <span class="c1">// ab,c,d,e</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="substring">Substring()</h3>
+<p>| 메소드                                     | 설명                             |
+|—————————————–|——————————–|
+| substring(int beginIndex)               | beginIndex에서 끝까지 잘라내기          |
+| substring(int beginIndex, int endIndex) | beginIndex에서 endIndex 앞까지 잘라내기 |</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">String</span> <span class="n">ssn</span> <span class="o">=</span> <span class="s">"880815-1234567"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">firstNum</span> <span class="o">=</span> <span class="n">ssn</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span> <span class="c1">// 880815</span>
+    <span class="nc">String</span> <span class="n">secondNum</span> <span class="o">=</span> <span class="n">ssn</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span> <span class="c1">// 1234567</span>
+</code></pre></div></div>
+
+<h3 id="indexof">indexOf()</h3>
+<p>문자열에서 특정 문자열의 위치를 찾고자 할 때 사용. 주어진 문자열이 시작되는 인덱스를 리턴한다.
+만약 주어진 문자열이 포함되어 있지 않으면 -1을 리턴함.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">String</span> <span class="n">subject</span> <span class="o">=</span> <span class="s">"자바 프로그래밍"</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">subject</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="s">"프로그래밍"</span><span class="o">);</span> <span class="c1">// 3</span>
+</code></pre></div></div>
+
+<h3 id="contains">contains()</h3>
+<p>주어진 문자열이 단순히 포함되어 있는지만 조사하고 싶다면 사용. 원하는 문자열이 포함되어 있으면 true 리턴, 그렇지 않으면 false 리턴</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="n">subject</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"프로그래밍"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="split">split()</h3>
+<p>파라미터로 들어오는 문자열을 기준으로 문자열을 쪼갠다. String[]을 리턴함.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"abcd#efg"</span><span class="o">;</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="n">splited</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"#"</span><span class="o">);</span> <span class="c1">// splited[0]: abcd, splited[1]: efg</span>
+
+    <span class="nc">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"aaa bbb ccc"</span><span class="o">;</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="n">splited2</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span> <span class="c1">// splited2[0]: aaa, splited2[1]: bbb, splited2[2]: ccc</span>
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

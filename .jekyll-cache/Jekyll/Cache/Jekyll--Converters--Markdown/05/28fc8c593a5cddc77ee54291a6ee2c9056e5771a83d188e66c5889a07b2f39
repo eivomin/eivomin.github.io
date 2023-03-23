@@ -1,0 +1,118 @@
+I"@3<h2 id="웹개발-종합반-3주차">웹개발 종합반 3주차</h2>
+
+<hr />
+
+<h4 id="foreach문으로-반복을-돌면서-하나씩-출력-">forEach문으로 반복을 돌면서, 하나씩 출력 <br /></h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;script&gt;</span>
+        <span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://spartacodingclub.shop/web/api/movie</span><span class="dl">"</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+              <span class="kd">let</span> <span class="nx">movies</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="dl">'</span><span class="s1">movies</span><span class="dl">'</span><span class="p">]</span>
+              <span class="nx">movies</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">movie</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">movie</span><span class="p">)</span>
+              <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+<h4 id="repeat">repeat()</h4>
+<p>repeat() 메서드는 문자열을 주어진 횟수만큼 반복해 붙인 새로운 문자열을 반환한다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;script&gt;</span>
+        <span class="kd">let</span> <span class="nx">star_image</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">⭐</span><span class="dl">'</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="nx">star</span><span class="p">)</span>
+    <span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+<h4 id="가상환경virtual-environment">가상환경(virtual environment)</h4>
+<p>같은 시스템에서 실행되는 다른 파이썬 응용 프로그램들의 동작에 영향을 주지 않기 위해, 파이썬 배포 패키지들을 설치하거나 업그레이드하는 것을 가능하게 하는 격리된 실행 환경</p>
+
+<h4 id="크롤링-기본-세팅">크롤링 기본 세팅</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kn">import</span> <span class="nn">requests</span>
+    <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'User-Agent'</span> <span class="p">:</span> <span class="s">'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.36 data = requests.get('</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">movie</span><span class="p">.</span><span class="n">naver</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">movie</span><span class="o">/</span><span class="n">sdb</span><span class="o">/</span><span class="n">rank</span><span class="o">/</span><span class="n">rmovie</span><span class="p">.</span><span class="n">naver</span><span class="err">?</span><span class="n">sel</span><span class="o">=</span><span class="n">pnt</span><span class="o">&amp;</span><span class="n">date</span><span class="o">=</span><span class="mi">20210829</span><span class="s">',headers=headers)
+    soup = BeautifulSoup(data.text, '</span><span class="n">html</span><span class="p">.</span><span class="n">parser</span><span class="s">') 
+</span></code></pre></div></div>
+
+<h4 id="select--select_one">select / select_one</h4>
+<ul>
+  <li>태그 안의 텍스트를 찍고 싶을 땐 → 태그.text</li>
+  <li>태그 안의 속성을 찍고 싶을 땐 → 태그[‘속성’]</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># 선택자를 사용하는 방법 (copy selector)
+</span>    <span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'태그명'</span><span class="p">)</span>
+    <span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'.클래스명'</span><span class="p">)</span>
+    <span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'#아이디명'</span><span class="p">)</span>
+    
+    <span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'상위태그명 &gt; 하위태그명 &gt; 하위태그명'</span><span class="p">)</span>
+    <span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'상위트개명,클래스명 &gt; 하위태그명,클래스명'</span><span class="p">)</span>
+    
+    <span class="c1"># 태그와 속성값으로 찾는 방법
+</span>    <span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'태그명[속성="값"]'</span><span class="p">)</span>
+    
+    <span class="c1"># 한 개만 가져오고 싶은 경우
+</span>    <span class="n">soup</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'위와 동일'</span><span class="p">)</span>
+    
+    <span class="c1"># 개발자 도구에서 Copy selector로 선택자 복사 가능!
+</span></code></pre></div></div>
+
+<h4 id="pymongo-기본-코드">pymongo 기본 코드</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+    <span class="kn">import</span> <span class="nn">certifi</span>
+    
+    <span class="n">ca</span> <span class="o">=</span> <span class="n">certifi</span><span class="p">.</span><span class="n">where</span><span class="p">()</span>
+    
+    <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s">'mongodb://spart:test@ac-ywf5hos-shard-00-00.vcctwzu.mongodb.net:27017,ac-ywf5hos-shard-00-01.vcctwzu.mongodb.net:27017,ac-ywf5hos-shard-00-02.vcctwzu.mongodb.net:27017/?ssl=true&amp;replicaSet=atlas-1f9jmh-shard-0&amp;authSource=admin&amp;retryWrites=true&amp;w=majority'</span><span class="p">,</span><span class="n">tlsCAFile</span><span class="o">=</span><span class="n">ca</span><span class="p">)</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">dbsparta</span>
+</code></pre></div></div>
+
+<h4 id="pymongo로-mongodb-조작하기">pymongo로 mongoDB 조작하기</h4>
+<ul>
+  <li>DB 연결하기 &amp; 데이터 넣기
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">'users'</span><span class="n">라는</span> <span class="n">collection에</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'bobby'</span><span class="p">,</span><span class="s">'age'</span><span class="p">:</span><span class="mi">21</span><span class="p">}</span><span class="n">를</span> <span class="n">넣는다</span><span class="p">.</span>
+  <span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">insert_one</span><span class="p">({</span><span class="s">'name'</span><span class="p">:</span><span class="s">'bobby'</span><span class="p">,</span><span class="s">'age'</span><span class="p">:</span><span class="mi">21</span><span class="p">})</span>
+  <span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">insert_one</span><span class="p">({</span><span class="s">'name'</span><span class="p">:</span><span class="s">'key'</span><span class="p">,</span><span class="s">'age'</span><span class="p">:</span><span class="mi">27</span><span class="p">})</span>
+  <span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">insert_one</span><span class="p">({</span><span class="s">'name'</span><span class="p">:</span><span class="s">'john'</span><span class="p">,</span><span class="s">'age'</span><span class="p">:</span><span class="mi">30</span><span class="p">})</span>
+</code></pre></div>    </div>
+  </li>
+  <li>모든 결과 값을 보기
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">all_users</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">find</span><span class="p">({},{</span><span class="s">'_id'</span><span class="p">:</span><span class="bp">False</span><span class="p">})</span>
+   
+ <span class="k">print</span><span class="p">(</span><span class="n">all_users</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 0번째 결과값을 보기
+</span> <span class="k">print</span><span class="p">(</span><span class="n">all_users</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'name'</span><span class="p">])</span>  <span class="c1"># 0번째 결과값의 'name'을 보기
+</span>   
+ <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">all_users</span><span class="p">:</span>   <span class="c1"># 반복문을 돌며 모든 결과값을 보기
+</span>      <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>특정 결과 값을 뽑아 보기
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">find_one</span><span class="p">({</span><span class="s">'name'</span><span class="p">:</span><span class="s">'bobby'</span><span class="p">})</span>
+</code></pre></div>    </div>
+  </li>
+  <li>수정하기
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">update_one</span><span class="p">({</span><span class="s">'name'</span><span class="p">:</span><span class="s">'bobby'</span><span class="p">},{</span><span class="s">'$set'</span><span class="p">:{</span><span class="s">'age'</span><span class="p">:</span><span class="mi">19</span><span class="p">}})</span>
+</code></pre></div>    </div>
+  </li>
+  <li>삭제하기
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">delete_one</span><span class="p">({</span><span class="s">'name'</span><span class="p">:</span><span class="s">'bobby'</span><span class="p">})</span>
+</code></pre></div>    </div>
+    <h3 id="3주차-숙제--스크래핑-하기">3주차 숙제 : 스크래핑 하기</h3>
+    <p>```python
+ import requests
+ from bs4 import BeautifulSoup</p>
+
+    <p>headers = {‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36’}
+ data = requests.get(‘https://www.genie.co.kr/chart/top200?ditc=M&amp;rtm=N&amp;ymd=20210701’,headers=headers)</p>
+
+    <p>soup = BeautifulSoup(data.text, ‘html.parser’)</p>
+
+    <p>trs = soup.select(‘#body-content &gt; div.newest-list &gt; div &gt; table &gt; tbody &gt; tr’)</p>
+
+    <p>for tr in trs:
+     rank = tr.select_one(‘td.number’).text[0:2].strip()
+     title = tr.select_one(‘td.info &gt; a.title.ellipsis’).text.strip()
+     artist = tr.select_one(‘td.info &gt; a.artist.ellipsis’).text
+     print(rank, title, artist)</p>
+  </li>
+</ul>
+
+<p>```</p>
+:ET

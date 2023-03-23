@@ -1,0 +1,52 @@
+I"�<h2 id="제네릭">제네릭</h2>
+
+<hr />
+
+<p>제네릭(Generic)이란 결정되지 않은 타입을 파라미터로 처리하고 실제 사용할 때 파라미터를 구체적인 타입으로 대체시키는 기능
+<br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;{</span>
+        <span class="kd">public</span> <span class="no">T</span> <span class="n">content</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>만약 Box의 내용물로 String을 저장하고 싶다면 다음과 같이 Box를 생성할 때 타입 파라미터 T 대신 String으로 대체하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+    <span class="n">box</span><span class="o">.</span><span class="na">content</span> <span class="o">=</span> <span class="s">"안녕하세요"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">content</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="na">content</span><span class="o">;</span>   <span class="c1">//강제 타입 변환 없이 "안녕하세요"를 바로 얻을 수 있음</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+    <span class="n">box</span><span class="o">.</span><span class="na">content</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">content</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="na">content</span><span class="o">;</span>   <span class="c1">//강제 타입 변환이 필요없이 100을 바로 얻을 수 있음</span>
+</code></pre></div></div>
+
+<h3 id="제한된-타입-파라미터">제한된 타입 파라미터</h3>
+<p>경우에 따라서는 타입 파라미터를 대체하는 구체적인 타입을 제한할 필요가 있다. 모든 타입으로 대체할 수 없고, 특정 타입과 자식 또는 구현 관계에 있는 타입만 
+대체할 수 있는 타입 파라미터를 제한된 타입 파라미터라고 한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="n">상위타입</span><span class="o">&gt;</span> <span class="n">리턴타입</span> <span class="n">메소드</span><span class="o">(</span><span class="n">매개변수</span><span class="o">,</span> <span class="o">...)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p>상위 타입은 클래스뿐만 아니라 인터페이스도 가능하다. 인터페이스라고 해서 implements를 사용하지는 않는다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Number</span><span class="o">&gt;</span> <span class="kt">boolean</span> <span class="nf">compare</span><span class="o">(</span><span class="no">T</span> <span class="n">t1</span><span class="o">,</span> <span class="no">T</span> <span class="n">t2</span><span class="o">){</span>
+    <span class="kt">double</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="na">doubleValue</span><span class="o">();</span>   <span class="c1">//Number의 doubleValue() 메소드 사용</span>
+    <span class="kt">double</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">t2</span><span class="o">.</span><span class="na">doubleValue</span><span class="o">();</span>   <span class="c1">//Number의 doubleValue() 메소드 사용</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">v1</span> <span class="o">==</span> <span class="n">v2</span><span class="o">);</span>
+<span class="o">}</span>   
+</code></pre></div></div>
+
+<h3 id="와일드카드-타입-파라미터">와일드카드 타입 파라미터</h3>
+<p>제네릭 타입을 매개값이나 리턴 타입으로 사용할 때 타입 파라미터로 ?(와일드카드)를 사용할 수 있다.
+<br />?는 범위에 있는 모든 타입으로 대체할 수 있다는 표시이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">리턴타입</span> <span class="n">메소드명</span><span class="o">(</span><span class="n">제네릭타입</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Student</span><span class="o">&gt;</span> <span class="n">변수</span> <span class="o">{...})</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">리턴타입</span> <span class="n">메소드명</span><span class="o">(</span><span class="n">제네릭타입</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Worker</span><span class="o">&gt;</span> <span class="n">변수</span> <span class="o">{...})</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">리턴타입</span> <span class="n">메소드명</span><span class="o">(</span><span class="n">제네릭타입</span><span class="o">&lt;?&gt;</span> <span class="n">변수</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

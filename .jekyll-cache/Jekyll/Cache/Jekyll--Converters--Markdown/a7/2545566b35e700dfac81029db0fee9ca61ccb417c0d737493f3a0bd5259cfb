@@ -1,0 +1,28 @@
+I"O<h2 id="super">super()</h2>
+
+<hr />
+
+<h3 id="super-1">super()</h3>
+<p>모든 객체는 생성자를 호출해야만 생성된다. 부모 객체도 예외는 아니다. 부모 생성자는 자식 생성자의 맨 첫 줄에 숨겨져 있는 super()에 의해 호출된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">//자식 생성자 선언</span>
+    <span class="kd">public</span> <span class="n">자식클래스</span><span class="o">(){</span>
+        <span class="kd">super</span><span class="o">();</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>super()는 컴파일 과정에서 자동 추가되는데, 이것은 부모의 기본 생성자를 호출한다. 부모 클래스에 기본 생성자가 없고 매개변수를 갖는 생성자만 있다면 개발자는
+다음과 같이 super(매개값, …)코드를 직접 넣어야 한다. 이 코드는 매개값의 타입과 개수가 일치하는 부모 생성자를 호출한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">//자식 생성자 선언</span>
+    <span class="kd">public</span> <span class="n">자식클래스</span><span class="o">(){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">매개값</span><span class="o">,</span> <span class="o">...);</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

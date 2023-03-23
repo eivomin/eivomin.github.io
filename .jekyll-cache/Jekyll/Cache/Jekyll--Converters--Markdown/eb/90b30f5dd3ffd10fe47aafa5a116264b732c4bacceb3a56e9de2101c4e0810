@@ -1,0 +1,52 @@
+I"�<h2 id="정적-블록">정적 블록</h2>
+
+<hr />
+
+<h3 id="정적-블록-1">정적 블록</h3>
+
+<p>정적 필드는 다음과 같이 필드 선언과 동시에 초기값을 주는 것이 일반적이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">static</span> <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>하지만 복잡한 초기화 작업이 필요하다면 정적 블록(static block)을 이용해야 한다</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">static</span><span class="o">{</span>
+        <span class="o">...</span>
+        <span class="o">}</span>
+</code></pre></div></div>
+<p>정적 블록은 클래스가 메모리로 로딩될 때 자동으로 실행된다. 정적 블록이 클래스 내부에 여러 개가 선언되어 있을 경우에는 선언된 순서로 실행된다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch06.sec10.exam02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Television</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="nc">String</span> <span class="n">company</span> <span class="o">=</span> <span class="s">"MyCompany"</span><span class="o">;</span>
+    <span class="kd">static</span> <span class="nc">String</span> <span class="n">model</span> <span class="o">=</span> <span class="s">"LCD"</span><span class="o">;</span>
+    <span class="kd">static</span> <span class="nc">String</span> <span class="n">info</span><span class="o">;</span>
+
+    <span class="kd">static</span><span class="o">{</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">company</span><span class="o">+</span><span class="s">"-"</span><span class="o">+</span><span class="n">model</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch06.sec10.exam02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TelevisionExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Television</span><span class="o">.</span><span class="na">info</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>정적 메소드와 정적 블록은 객체가 없어도 실행된다는 특징 때문에 내부에 인스턴스 필드나 인스턴스 메소드를 사용할 수 없다.
+또한 객체 자신의 참조인 this도 사용할 수 없다.</p>
+  </li>
+  <li>
+    <p>출처: 이것이 자바다</p>
+  </li>
+</ul>
+:ET

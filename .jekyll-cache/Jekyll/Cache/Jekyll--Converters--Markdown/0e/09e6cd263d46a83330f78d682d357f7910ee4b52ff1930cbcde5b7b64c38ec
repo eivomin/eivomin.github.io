@@ -1,0 +1,58 @@
+I"�<h2 id="문자열-숫자-타입-변환">문자열 숫자 타입 변환</h2>
+
+<hr />
+
+<ul>
+  <li>문자열을 기본 타입으로 변환</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>변환 타입</th>
+      <th>사용 예</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String → byte</td>
+      <td>String str = “10”;<br />byte value = Byte.parseByte(str);</td>
+    </tr>
+    <tr>
+      <td>String → short</td>
+      <td>String str = “200”;<br />short value = Short.parseShort(str);</td>
+    </tr>
+    <tr>
+      <td>String → int</td>
+      <td>String str = “300000”;<br />int value = Integer.parseInt(str);</td>
+    </tr>
+    <tr>
+      <td>String → long</td>
+      <td>String str = “40000000000”;<br />long value = Long.parseLong(str);</td>
+    </tr>
+    <tr>
+      <td>String → float</td>
+      <td>String str = “12.345”;<br />float value = Float.parseFloat(str);</td>
+    </tr>
+    <tr>
+      <td>String → double</td>
+      <td>String str = “12.345”;<br />double value = Double.parseDouble(str);</td>
+    </tr>
+    <tr>
+      <td>String → boolean</td>
+      <td>String str = “true”;<br />boolean value = Boolean.parseBoolean(str);</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>반대로 기본 타입의 값을 문자열로 변경하는 경우
+<br />
+String str = String.valueOf(기본타입값);</p>
+  </li>
+  <li>
+    <p>출처: 이것이 자바다, 65page</p>
+  </li>
+</ul>
+:ET

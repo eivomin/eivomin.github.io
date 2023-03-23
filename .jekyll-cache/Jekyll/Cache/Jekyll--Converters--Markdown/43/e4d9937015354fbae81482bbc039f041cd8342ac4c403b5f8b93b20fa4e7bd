@@ -1,0 +1,132 @@
+I"zB<h2 id="생성자-오버로딩">생성자 오버로딩</h2>
+
+<hr />
+
+<h3 id="생성자-오버로딩-1">생성자 오버로딩</h3>
+<p>매개변수의 타입, 개수, 순서가 다르게 여러 개의 생성자 선언</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Car.java */</span>
+
+<span class="kn">package</span> <span class="nn">ch06.sec07.exam04</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="c1">//필드 선언</span>
+    <span class="nc">String</span> <span class="n">company</span> <span class="o">=</span> <span class="s">"현대자동차"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">model</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">color</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">maxSpeed</span><span class="o">;</span>
+
+    <span class="c1">//생성자 선언</span>
+    <span class="nc">Car</span><span class="o">()</span> <span class="o">{}</span>
+
+    <span class="nc">Car</span><span class="o">(</span><span class="nc">String</span> <span class="n">model</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nc">Car</span><span class="o">(</span><span class="nc">String</span> <span class="n">model</span><span class="o">,</span> <span class="nc">String</span> <span class="n">color</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nc">Car</span><span class="o">(</span><span class="nc">String</span> <span class="n">model</span><span class="o">,</span> <span class="nc">String</span> <span class="n">color</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxSpeed</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">maxSpeed</span> <span class="o">=</span> <span class="n">maxSpeed</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* CarExample.java */</span>
+
+<span class="kn">package</span> <span class="nn">ch06.sec07.exam04</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Car</span> <span class="n">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">();</span> <span class="c1">// 생성자 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car1.compnay: "</span><span class="o">+</span><span class="n">car1</span><span class="o">.</span><span class="na">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">Car</span> <span class="n">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"자가용"</span><span class="o">);</span> <span class="c1">// 생성자 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car2.company: "</span><span class="o">+</span><span class="n">car2</span><span class="o">.</span><span class="na">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car2.model: "</span><span class="o">+</span><span class="n">car2</span><span class="o">.</span><span class="na">model</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">Car</span> <span class="n">car3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"자가용"</span><span class="o">,</span> <span class="s">"빨강"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car3.company: "</span><span class="o">+</span><span class="n">car3</span><span class="o">.</span><span class="na">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car3.model: "</span><span class="o">+</span><span class="n">car3</span><span class="o">.</span><span class="na">model</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car3.color: "</span><span class="o">+</span><span class="n">car3</span><span class="o">.</span><span class="na">color</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">Car</span> <span class="n">car4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"자가용"</span><span class="o">,</span> <span class="s">"빨강"</span><span class="o">,</span> <span class="mi">200</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car4.company: "</span><span class="o">+</span><span class="n">car4</span><span class="o">.</span><span class="na">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car4.model: "</span><span class="o">+</span><span class="n">car4</span><span class="o">.</span><span class="na">model</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car4.color: "</span><span class="o">+</span><span class="n">car4</span><span class="o">.</span><span class="na">color</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car4.maxSpeed: "</span><span class="o">+</span><span class="n">car4</span><span class="o">.</span><span class="na">maxSpeed</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="다른-생성자-호출">다른 생성자 호출</h3>
+<p>생성자 오버로딩이 많아질 경우 생성자 간의 중복코드가 발생할 수 있다. 이 경우에는 공통 코드를 한 생성자에만 집중적으로 작성하고, 나머지 생성자는 this(…)를 사용하여 공통 코드를 가지고 있는 생성자를 호출하는 방법으로 개선할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch06.sec07.exam05</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="c1">// 필드 선언</span>
+    <span class="nc">String</span> <span class="n">company</span> <span class="o">=</span> <span class="s">"현대자동차"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">model</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">color</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">maxSpeed</span><span class="o">;</span>
+
+    <span class="nc">Car</span><span class="o">(</span><span class="nc">String</span> <span class="n">model</span><span class="o">){</span>
+        <span class="c1">//20라인 생성자 호출</span>
+        <span class="k">this</span><span class="o">(</span><span class="n">model</span><span class="o">,</span><span class="s">"은색"</span><span class="o">,</span> <span class="mi">250</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nc">Car</span><span class="o">(</span><span class="nc">String</span> <span class="n">model</span><span class="o">,</span> <span class="nc">String</span> <span class="n">color</span><span class="o">){</span>
+        <span class="c1">//20라인 생성자 호출</span>
+        <span class="k">this</span><span class="o">(</span><span class="n">model</span><span class="o">,</span> <span class="n">color</span><span class="o">,</span> <span class="mi">250</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nc">Car</span><span class="o">(</span><span class="nc">String</span> <span class="n">model</span><span class="o">,</span> <span class="nc">String</span> <span class="n">color</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxSpeed</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">maxSpeed</span> <span class="o">=</span> <span class="n">maxSpeed</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch06.sec07.exam05</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Car</span> <span class="n">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"자가용"</span><span class="o">);</span> <span class="c1">// 생성자 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car1.company: "</span><span class="o">+</span><span class="n">car1</span><span class="o">.</span><span class="na">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car1.model: "</span><span class="o">+</span><span class="n">car1</span><span class="o">.</span><span class="na">model</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">Car</span> <span class="n">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"자가용"</span><span class="o">,</span> <span class="s">"빨강"</span><span class="o">);</span> <span class="c1">// 생성자 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car2.company: "</span><span class="o">+</span><span class="n">car2</span><span class="o">.</span><span class="na">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">prinåçtln</span><span class="o">(</span><span class="s">"car2.model: "</span><span class="o">+</span><span class="n">car2</span><span class="o">.</span><span class="na">model</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car2.color: "</span><span class="o">+</span><span class="n">car2</span><span class="o">.</span><span class="na">color</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">Car</span> <span class="n">car3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"택시"</span><span class="o">,</span> <span class="s">"검정"</span><span class="o">,</span> <span class="mi">200</span><span class="o">);</span> <span class="c1">// 생성자 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car3.company : "</span><span class="o">+</span><span class="n">car3</span><span class="o">.</span><span class="na">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car3.model : "</span><span class="o">+</span><span class="n">car3</span><span class="o">.</span><span class="na">model</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car3.color : "</span><span class="o">+</span><span class="n">car3</span><span class="o">.</span><span class="na">color</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"car3.maxSpeed : "</span><span class="o">+</span><span class="n">car3</span><span class="o">.</span><span class="na">maxSpeed</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

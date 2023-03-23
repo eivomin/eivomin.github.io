@@ -1,0 +1,87 @@
+I"	<h2 id="추상-클래스">추상 클래스</h2>
+
+<hr />
+
+<p>객체를 생성할 수 있는 클래스를 실체 클래스라고 한다면, 이 클래스들의 공통적인 필드나 메소드를 추출해서 선언한 클래스를 추상 클래스라고 한다.<br />
+추상 클래스는 실체 클래스의 부모 역할을 한다. 따라서 실체 클래스는 추상 클래스를 상속해서 공통적인 필드나 메소드를 물려받을 수 있다.<br />
+추상 클래스는 실체 클래스의 공통되는 필드와 메소드를 추출해서 만들었기 때문에 new 연산자를 사용해서 객체를 직접 생성할 수 없다.</p>
+
+<h3 id="추상-클래스-선언">추상 클래스 선언</h3>
+<p>클래스 선언에 <strong>abstract</strong> 키워드를 붙이면 추상 클래스 선언이 된다. 추상 클래스는 new 연산자를 이용해서 객체를 직접 만들지 못하고 상속을 통해 자식 클래스만 만들 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">클래스명</span><span class="o">{</span>
+    <span class="c1">//필드</span>
+    <span class="c1">//생성자</span>
+    <span class="c1">//메소드</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>추상 클래스도 필드, 메소드를 선언할 수 있다. 그리고 자식 객체가 생성될 때 super()로 추상 클래스의 생성자가 호출되기 때문에 생성자도 반드시 있어야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec10.exam01</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Phone</span> <span class="o">{</span>
+    <span class="c1">//필드 선언</span>
+    <span class="nc">String</span> <span class="n">owner</span><span class="o">;</span>
+
+    <span class="c1">//생성자 선언</span>
+    <span class="nc">Phone</span><span class="o">(</span><span class="nc">String</span> <span class="n">owner</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">owner</span> <span class="o">=</span> <span class="n">owner</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//메소드 선언</span>
+    <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"폰 전원을 켭니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"폰 전원을 끕니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec10.exam01</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SmartPhone</span> <span class="kd">extends</span> <span class="nc">Phone</span><span class="o">{</span>
+    <span class="c1">//생성자 선언</span>
+    <span class="nc">SmartPhone</span><span class="o">(</span><span class="nc">String</span> <span class="n">owner</span><span class="o">){</span>
+        <span class="c1">//Phone 생성자 호출</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">owner</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//메소드 선언</span>
+    <span class="kt">void</span> <span class="nf">internetSearch</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"인터넷 검색을 합니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec10.exam01</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PhoneExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//Phone phone = new Phone(); // X</span>
+
+        <span class="nc">SmartPhone</span> <span class="n">smartPhone</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartPhone</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">);</span>
+
+        <span class="n">smartPhone</span><span class="o">.</span><span class="na">turnOn</span><span class="o">();</span>
+        <span class="n">smartPhone</span><span class="o">.</span><span class="na">internetSearch</span><span class="o">();</span>
+        <span class="n">smartPhone</span><span class="o">.</span><span class="na">turnOff</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span><span class="n">ㅁ</span>
+
+</code></pre></div></div>
+
+<h3 id="추상-메소드와-재정의">추상 메소드와 재정의</h3>
+<p>자식 클래스들이 가지고 있는 공통 메소드를 뽑아내어 추상 클래스로 작성할 때, 메소드 선언부(리턴타입, 메소드명, 매개변수)만 동일하고 <br />
+실행 내용은 자식 클래스마다 달라야 하는 경우가 많다.
+이런 경우를 위해서 추상 클래스는 다음과 같은 추상 메소드를 선언할 수 있다. 일반 메소드 선언과의 차이점은 abstract 키워드가 붙고, 메소드 실행 내용인 중괄호 {}가 없다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">abstract</span> <span class="n">리턴타입</span> <span class="n">메소드명</span><span class="o">(</span><span class="n">매개변수</span><span class="o">,</span> <span class="o">...);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

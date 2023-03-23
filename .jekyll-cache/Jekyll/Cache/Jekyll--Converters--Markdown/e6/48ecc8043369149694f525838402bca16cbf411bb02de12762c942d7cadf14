@@ -1,0 +1,127 @@
+I"%<h2 id="타입-변환">타입 변환</h2>
+
+<hr />
+
+<h3 id="자동-타입-변환-부모---자식">자동 타입 변환 (부모 - 자식)</h3>
+
+<p>자동 타입 변환은 의미 그대로 자동적으로 타입 변환이 일어나는 것을 말한다. <br />
+부모타입 변수 = 자식타입객체;
+<br />
+자식 클래스에서 오버라이딩된 메소드가 있다면 부모 메소드 대신 오버라이딩된 메소드가 호출된다 → 다형성과 관련!</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec07.exam02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Parent</span> <span class="o">{</span>
+    <span class="c1">//메소드 선언</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method1</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Parent-method1()"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//메소드 선언</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method2</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Parent-method2()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec07.exam02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Child</span> <span class="kd">extends</span> <span class="nc">Parent</span><span class="o">{</span>
+    <span class="c1">//메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method2</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Child-method2()"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//메소드 선언</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method3</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Child-method3()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec07.exam02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChildExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//자식 객체 생성</span>
+        <span class="nc">Child</span> <span class="n">child</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Child</span><span class="o">();</span>
+
+        <span class="c1">//자동 타입 변환</span>
+        <span class="nc">Parent</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">child</span><span class="o">;</span>
+
+        <span class="c1">//메소드 호출</span>
+        <span class="n">parent</span><span class="o">.</span><span class="na">method1</span><span class="o">();</span>
+        <span class="n">parent</span><span class="o">.</span><span class="na">method2</span><span class="o">();</span>
+        <span class="c1">//parent.method3(); (호출 불가능)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="cm">/* Parent-method1()
+   Child-method2() --&gt; 자식 메소드가 호출됨 */</span>
+</code></pre></div></div>
+
+<h3 id="자동-타입-변환-부모---자식-1">자동 타입 변환 (부모 - 자식)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec07.exam03</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Parent</span> <span class="o">{</span>
+    <span class="c1">//필드 선언</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">field1</span><span class="o">;</span>
+
+    <span class="c1">//메소드 선언</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method1</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Parent-method1()"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//메소드 선언</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method2</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Parent-method2()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec07.exam03</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Child</span> <span class="kd">extends</span> <span class="nc">Parent</span><span class="o">{</span>
+    <span class="c1">//필드 선언</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">field2</span><span class="o">;</span>
+
+    <span class="c1">//메소드 선언</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method3</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Child-method3()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec07.exam03</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChildExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//객체 생성 및 자동 타입 변환</span>
+        <span class="nc">Parent</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Child</span><span class="o">();</span>
+
+        <span class="c1">//Parent 타입으로 필드와 메소드 사용</span>
+        <span class="n">parent</span><span class="o">.</span><span class="na">field1</span> <span class="o">=</span> <span class="s">"data1"</span><span class="o">;</span>
+        <span class="n">parent</span><span class="o">.</span><span class="na">method1</span><span class="o">();</span>
+        <span class="n">parent</span><span class="o">.</span><span class="na">method2</span><span class="o">();</span>
+
+        <span class="cm">/*
+        * parent.field2 = "data2";  //(불가능)
+        * parent.method3();         //(불가능)
+        * */</span>
+
+        <span class="c1">//강제 타입 변환</span>
+        <span class="nc">Child</span> <span class="n">child</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Child</span><span class="o">)</span><span class="n">parent</span><span class="o">;</span>
+
+        <span class="c1">//Child 타입으로 필드와 메소드 사용</span>
+        <span class="n">child</span><span class="o">.</span><span class="na">field2</span> <span class="o">=</span> <span class="s">"data2"</span><span class="o">;</span> <span class="c1">//(가능)</span>
+        <span class="n">child</span><span class="o">.</span><span class="na">method3</span><span class="o">();</span>        <span class="c1">//(가능)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

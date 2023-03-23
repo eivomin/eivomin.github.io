@@ -1,0 +1,54 @@
+I"�<h3 id="dfs">DFS</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Backjoon</span><span class="o">;</span>
+
+<span class="cm">/*
+ * 바킹독님 블로그 참고
+ * */</span>
+
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">dfs</span> <span class="o">{</span>
+
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Pair</span><span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="nf">Pair</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">){</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">board</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">502</span><span class="o">][</span><span class="mi">502</span><span class="o">];</span> <span class="c1">// 1이 파란 칸, 0이 빨간 칸에 대응</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">502</span><span class="o">][</span><span class="mi">502</span><span class="o">];</span> <span class="c1">// 해당 칸을 방문했는지 여부를 저장</span>
+        <span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span> <span class="c1">// 행의 수</span>
+        <span class="kt">int</span> <span class="no">M</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">// 열의 수</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dx</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dy</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+
+        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Pair</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+        <span class="n">visited</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// (0,0)을 방문했다고 명시</span>
+        <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="nc">Pair</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">));</span> <span class="c1">// 스택에 시작점인 (0,0)을 삽입</span>
+
+        <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+            <span class="nc">Pair</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">dir</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">dir</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">;</span> <span class="n">dir</span><span class="o">++){</span> <span class="c1">// 상하좌우 칸 </span>
+                <span class="kt">int</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">x</span><span class="o">+</span><span class="n">dx</span><span class="o">[</span><span class="n">dir</span><span class="o">];</span>
+                <span class="kt">int</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">y</span><span class="o">+</span><span class="n">dy</span><span class="o">[</span><span class="n">dir</span><span class="o">];</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">nx</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">nx</span> <span class="o">&gt;=</span> <span class="no">N</span> <span class="o">||</span> <span class="n">ny</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">ny</span> <span class="o">&gt;=</span> <span class="no">M</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> <span class="c1">// 범위 밖일 경우 넘어감</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">nx</span><span class="o">][</span><span class="n">ny</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">board</span><span class="o">[</span><span class="n">nx</span><span class="o">][</span><span class="n">ny</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> <span class="c1">// 이미 방문한 칸이거나 파란 칸이 아닐 경우</span>
+                <span class="n">visited</span><span class="o">[</span><span class="n">nx</span><span class="o">][</span><span class="n">ny</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// (nx, ny)를 방문했다고 명시</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="nc">Pair</span><span class="o">(</span><span class="n">nx</span><span class="o">,</span> <span class="n">ny</span><span class="o">));</span>
+            <span class="o">}</span>
+
+        <span class="o">}</span>
+
+
+
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+:ET

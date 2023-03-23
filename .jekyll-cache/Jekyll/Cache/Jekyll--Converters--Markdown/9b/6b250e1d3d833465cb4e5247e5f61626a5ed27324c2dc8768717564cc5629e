@@ -1,0 +1,47 @@
+I"x
+<h2 id="웹개발-종합반-5주차">웹개발 종합반 5주차</h2>
+
+<hr />
+
+<h4 id="나의-버킷리스트">나의 버킷리스트</h4>
+
+<p><img src="https://user-images.githubusercontent.com/97949070/226823222-4a3b0a0e-cc8f-4653-a335-047ea594e24e.png" alt="스크린샷 2023-03-22 오후 3 19 41" /></p>
+
+<h4 id="팬명록">팬명록</h4>
+<ul>
+  <li>og 태그 넣기</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:title"</span> <span class="na">content=</span><span class="s">"내 사이트의 제목"</span> <span class="nt">/&gt;</span> 
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:description"</span> <span class="na">content=</span><span class="s">"보고 있는 페이지의 내용 요약"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:image"</span> <span class="na">content=</span><span class="s">"이미지 URL"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h4 id="aws-elastic-beanstalk">AWS Elastic Beanstalk</h4>
+<ul>
+  <li>AWS 클라우드에서 애플리케이션을 신속하게 배포하고 관리할 수 있는 서비스</li>
+  <li>애플리케이션을 업로드만 하면 용량 프로비저닝, 로드 밸런싱, 조정, 모니터링 등 자동 처리</li>
+  <li>EB console, AWS CLI를 이용해 상호작용</li>
+</ul>
+
+<h3 id="5주차-숙제-지금까지-만든-팬명록-도메인을-제출해주세요-">5주차 숙제: 지금까지 만든 팬명록 도메인을 제출해주세요 :)</h3>
+<p>http://myweb.eba-fnc8pe2q.ap-northeast-2.elasticbeanstalk.com/</p>
+
+<p><img src="https://user-images.githubusercontent.com/97949070/226823284-67b2cf5f-6e55-4be2-82b1-03b9e5580346.png" alt="스크린샷 2023-03-22 오후 3 26 35" /></p>
+
+<p><img src="https://user-images.githubusercontent.com/97949070/226823301-e39a92b2-5d94-4680-8795-cfed6593e609.png" alt="스크린샷 2023-03-22 오후 3 34 16" /></p>
+
+<h3 id="오늘-목표">오늘 목표</h3>
+<ol>
+  <li>웹개발 종합반 5주차 복습</li>
+  <li>이것이 자바다 인터페이스, 컬렉션 자료구조 공부</li>
+  <li>삼성 sw 역량 테스트 기출문제 2048(Easy) 풀이</li>
+</ol>
+
+<h3 id="내일-목표">내일 목표</h3>
+<ol>
+  <li>알고리즘 자료구조(bfs, dfs, 백트래킹, dp, 순열, 조합) 공부하기</li>
+  <li>해당 자료구조에 맞는 알고리즘 문제 풀어보기</li>
+  <li>자소서 제출..</li>
+</ol>
+:ET

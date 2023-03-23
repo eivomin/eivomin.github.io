@@ -1,0 +1,586 @@
+I";�<h2 id="컬렉션-자료구조">컬렉션 자료구조</h2>
+
+<hr />
+
+<h3 id="컬렉션-프레임워크">컬렉션 프레임워크</h3>
+<p><img src="https://user-images.githubusercontent.com/97949070/227076884-1b91d207-5786-4836-959b-7487e03774a9.png" alt="스크린샷 2023-03-22 오후 4 09 00" /></p>
+
+<h3 id="list-컬렉션">List 컬렉션</h3>
+<p><img src="https://user-images.githubusercontent.com/97949070/227076911-3a7e4903-ccd6-4959-8989-27d907c17384.png" alt="스크린샷 2023-03-22 오후 4 16 42" /></p>
+
+<h4 id="arraylist">ArrayList</h4>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;();</span>  <span class="c1">//E에 지정된 타입의 객체만 저장</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>   <span class="c1">//E에 지정된 타입의 객체만 저장</span>
+    <span class="nc">List</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>  <span class="c1">//모든 타입의 객체를 저장</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec02.exam01</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Board</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">subject</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">content</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">writer</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Board</span><span class="o">(</span><span class="nc">String</span> <span class="n">subject</span><span class="o">,</span> <span class="nc">String</span> <span class="n">content</span><span class="o">,</span> <span class="nc">String</span> <span class="n">writer</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">subject</span> <span class="o">=</span> <span class="n">subject</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">content</span> <span class="o">=</span> <span class="n">content</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">writer</span> <span class="o">=</span> <span class="n">writer</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getSubject</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">subject</span><span class="o">;}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSubject</span><span class="o">(</span><span class="nc">String</span> <span class="n">subject</span><span class="o">)</span> <span class="o">{</span><span class="k">this</span><span class="o">.</span><span class="na">subject</span> <span class="o">=</span> <span class="n">subject</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getContent</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">content</span><span class="o">;}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setContent</span><span class="o">(</span><span class="nc">String</span> <span class="n">content</span><span class="o">)</span> <span class="o">{</span><span class="k">this</span><span class="o">.</span><span class="na">content</span> <span class="o">=</span> <span class="n">content</span><span class="o">;}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getWriter</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">writer</span><span class="o">;}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setWriter</span><span class="o">(</span><span class="nc">String</span> <span class="n">writer</span><span class="o">)</span> <span class="o">{</span><span class="k">this</span><span class="o">.</span><span class="na">writer</span> <span class="o">=</span> <span class="n">writer</span><span class="o">;}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec02.exam01</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayListExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//ArrayList 컬렉션 생성</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Board</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">//객체 추가</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Board</span><span class="o">(</span><span class="s">"제목1"</span><span class="o">,</span> <span class="s">"내용1"</span><span class="o">,</span> <span class="s">"글쓴이1"</span><span class="o">));</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Board</span><span class="o">(</span><span class="s">"제목2"</span><span class="o">,</span> <span class="s">"내용2"</span><span class="o">,</span> <span class="s">"글쓴이2"</span><span class="o">));</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Board</span><span class="o">(</span><span class="s">"제목3"</span><span class="o">,</span> <span class="s">"내용3"</span><span class="o">,</span> <span class="s">"글쓴이3"</span><span class="o">));</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Board</span><span class="o">(</span><span class="s">"제목4"</span><span class="o">,</span> <span class="s">"내용4"</span><span class="o">,</span> <span class="s">"글쓴이4"</span><span class="o">));</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Board</span><span class="o">(</span><span class="s">"제목5"</span><span class="o">,</span> <span class="s">"내용5"</span><span class="o">,</span> <span class="s">"글쓴이5"</span><span class="o">));</span>
+
+        <span class="c1">//저장된 총 객체 수 얻기</span>
+        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"총 객체 수: "</span><span class="o">+</span><span class="n">size</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">Board</span> <span class="n">board</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">board</span><span class="o">.</span><span class="na">getSubject</span><span class="o">()+</span><span class="s">"\t"</span><span class="o">+</span><span class="n">board</span><span class="o">.</span><span class="na">getContent</span><span class="o">()+</span><span class="s">"\t"</span><span class="o">+</span><span class="n">board</span><span class="o">.</span><span class="na">getWriter</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">//모든 객체를 하나씩 가져오기</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="nc">Board</span> <span class="n">b</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">getSubject</span><span class="o">()+</span><span class="s">"\t"</span><span class="o">+</span><span class="n">b</span><span class="o">.</span><span class="na">getContent</span><span class="o">()+</span><span class="s">"\t"</span><span class="o">+</span><span class="n">b</span><span class="o">.</span><span class="na">getWriter</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">//객체 삭제</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+
+        <span class="c1">//향상된 for 문으로 모든 객체를 하나씩 가져오기</span>
+        <span class="k">for</span><span class="o">(</span><span class="nc">Board</span> <span class="n">b</span> <span class="o">:</span> <span class="n">list</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">getSubject</span><span class="o">()+</span><span class="s">"\t"</span><span class="o">+</span><span class="n">b</span><span class="o">.</span><span class="na">getContent</span><span class="o">()+</span><span class="s">"\t"</span><span class="o">+</span><span class="n">b</span><span class="o">.</span><span class="na">getWriter</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="vector">Vector</h4>
+<p>Vector는 ArrayList와 동일한 내부 구조를 가지고 있다. 차이점은 Vector는 동기화된 메소드로 구성되어 있기 때문에 멀티 스레드가 동시에
+Vector() 메소드를 실행할 수 없다는 것이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;();</span>     <span class="c1">//E에 지정된 타입의 객체만 저장 </span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vector</span><span class="o">&lt;&gt;();</span>      <span class="c1">//E에 지정된 타입의 객체만 저장</span>
+    <span class="nc">List</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vector</span><span class="o">();</span>           <span class="c1">//모든 타입의 객체를 저장</span>
+</code></pre></div></div>
+
+<h4 id="linkedlist">LinkedList</h4>
+<p>LinkedList는 ArrayList와 사용 방법은 동일하지만 내부 구조는 완전히 다르다. 
+ArrayList는 내부 배열에 객체를 저장하지만, LinkedList는 인접 객체를 체인처럼 연결해서 관리한다.
+<br />
+LinkedList는 특정 위치에서 객체를 삽입하거나 삭제하면 바로 앞뒤 링크만 변경하면 되므로 빈번한 객체 삭제와 삽입이
+일어나는 곳에서는 ArrayList보다 좋은 성능을 발휘한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;();</span>     <span class="c1">//E에 지정된 타입의 객체만 저장 </span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>      <span class="c1">//E에 지정된 타입의 객체만 저장</span>
+    <span class="nc">List</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">();</span>           <span class="c1">//모든 타입의 객체를 저장</span>
+</code></pre></div></div>
+
+<h3 id="set-컬렉션">Set 컬렉션</h3>
+<p><img src="https://user-images.githubusercontent.com/97949070/227077061-b72f89ec-4c35-47c0-b587-5edbda8c77da.png" alt="스크린샷 2023-03-22 오후 4 44 14" /></p>
+
+<h4 id="hashset">HashSet</h4>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Set</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;();</span>      <span class="c1">//E에 지정된 타입의 객체만 저장</span>
+    <span class="nc">Set</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HaseSet</span><span class="o">&lt;&gt;();</span>       <span class="c1">//E에 지정된 타입의 객체만 저장</span>
+    <span class="nc">Set</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">();</span>            <span class="c1">//모든 타입의 객체를 저장</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec03.exam01</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashSetExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//HashSet 컬렉션 생성</span>
+        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+
+        <span class="c1">//객체 저장</span>
+        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Java"</span><span class="o">);</span>
+        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"JDBC"</span><span class="o">);</span>
+        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"JSP"</span><span class="o">);</span>
+        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Java"</span><span class="o">);</span>    <span class="c1">// 중복 객체이므로 저장하지 않음</span>
+        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Spring"</span><span class="o">);</span>
+
+        <span class="c1">//저장된 객체 수 출력</span>
+        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"총 객체 수 : "</span><span class="o">+</span><span class="n">size</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Set 컬렉션은 인덱스로 객체를 검색해서 가져오는 메소드가 없다. 대신 객체를 한 개씩 반복해서 가져와야 하는데, 
+여기에는 두 가지 방법이 있다. 하나는 다음과 같이 for 문을 이용하는 것이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Set</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+    <span class="k">for</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span> <span class="o">:</span> <span class="n">set</span><span class="o">){</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+<p>다른 방법은 다음과 같이 Set 컬렉션의 iterator() 메소드로 반복자를 얻어 객체를 하나씩 가져오는 것이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Set</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+    <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>iterator는 Set 컬렉션의 객체를 가져오거나 제거하기 위해 다음 메소드를 제공한다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>리턴 타입</th>
+      <th>메소드명</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>boolean</td>
+      <td>hasNext()</td>
+      <td>가져올 객체가 있으면 true를 리턴하고 없으면 false를 리턴한다.</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>next()</td>
+      <td>컬렉션에서 하나의 객체를 가져온다.</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td>remove()</td>
+      <td>next()로 가져온 객체를 Set 컬렉션에서 제거한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">while</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+        <span class="no">E</span> <span class="n">e</span> <span class="o">=</span> <span class="n">interator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+    <span class="o">}</span>   
+</code></pre></div></div>
+
+<p>hasNext() 메소드로 가져올 객체가 있는지 먼저 확인하고, true를 리턴할 때만 next() 메소드로 객체를 가져온다.
+ 만약 next()로 가져온 객체를 컬렉션에서 제거하고 싶다면 remove() 메소드를 사용한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec03.exam03</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashSetExample</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">//HashSet 컬렉션 생성</span>
+  <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+
+  <span class="c1">//객체 추가</span>
+  <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Java"</span><span class="o">);</span>
+  <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"JDBC"</span><span class="o">);</span>
+  <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"JSP"</span><span class="o">);</span>
+  <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Spring"</span><span class="o">);</span>
+
+  <span class="c1">//객체를 하나식 가져와서 처리</span>
+  <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+  <span class="k">while</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+   <span class="c1">//객체를 하나 가져오기</span>
+   <span class="nc">String</span> <span class="n">element</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+   <span class="k">if</span><span class="o">(</span><span class="n">element</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"JSP"</span><span class="o">)){</span>
+    <span class="c1">//가져온 객체를 컬렉션에서 제거</span>
+    <span class="n">iterator</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+   <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//객체 제거</span>
+  <span class="n">set</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">"JDBC"</span><span class="o">);</span>
+
+  <span class="c1">//객체를 하나씩 가져와서 처리</span>
+  <span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="n">element</span> <span class="o">:</span> <span class="n">set</span><span class="o">){</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+  <span class="o">}</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="map-컬렉션">Map 컬렉션</h3>
+<p>Map 컬렉션은 키(key)와 값(Value)으로 구성된 엔트리 객체를 저장한다. 여기서 키와 값은 모두 객체이다. 키는 중복
+저장할 수 없지만 값은 중복 저장할 수 있다. 기존에 저장된 키와 동일한 키로 값을 저장하면 기존의 값은 없어지고 새로운 
+값으로 대치된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/97949070/227077071-92dba27a-c036-477c-943e-8f65ea752782.png" alt="스크린샷 2023-03-22 오후 5 26 38" /></p>
+
+<h4 id="hashmap">HashMap</h4>
+<p>HashMap은 키로 사용할 객체가 haseCode() 메소드의 리턴값이 같고 equals() 메소드가 true를 리턴할 경우, 동일 키로 
+보고 중복 저장을 허용하지 않는다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Map</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;();</span>
+</code></pre></div></div>
+
+<p>키는 String 타입, 값은 Integer 타입으로 갖는 HashMap은 다음과 같이 생성할 수 있다. Map에 지정된 키와
+ 값의 타입이 HashMap과 동일할 경우, HashMap&lt;&gt;을 사용할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;();</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec04.exam01</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashMapExample</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">//Map 컬렉션 생성</span>
+  <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+
+  <span class="c1">//객체 저장</span>
+  <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"신용권"</span><span class="o">,</span> <span class="mi">85</span><span class="o">);</span>
+  <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">,</span> <span class="mi">90</span><span class="o">);</span>
+  <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"동장군"</span><span class="o">,</span> <span class="mi">80</span><span class="o">);</span>
+  <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">,</span> <span class="mi">95</span><span class="o">);</span> <span class="c1">// 키가 같기 때문에 제일 마지막에 저장한 값만 저장</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"총 Entry 수 : "</span><span class="o">+</span><span class="n">map</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//키로 값 얻기</span>
+  <span class="nc">String</span> <span class="n">key</span> <span class="o">=</span> <span class="s">"홍길동"</span><span class="o">;</span>
+  <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>   <span class="c1">// 키를 매개값으로 주면 값을 리턴</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">key</span><span class="o">+</span><span class="s">": "</span><span class="o">+</span><span class="n">value</span><span class="o">);</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//키 Set 컬렉션을 얻고, 반복해서 키와 값을 얻기</span>
+  <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">keySet</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
+  <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">keyIterator</span> <span class="o">=</span> <span class="n">keySet</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="c1">// 키를 반복하기 위해 반복자를 얻음</span>
+  <span class="k">while</span><span class="o">(</span><span class="n">keyIterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+   <span class="nc">String</span> <span class="n">k</span> <span class="o">=</span> <span class="n">keyIterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+   <span class="nc">Integer</span> <span class="n">v</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">k</span><span class="o">);</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">k</span><span class="o">+</span><span class="s">" : "</span><span class="o">+</span><span class="n">v</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//엔트리 Set 컬렉션을 얻고, 반복해서 키와 값을 얻기</span>
+  <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">entrySet</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">entrySet</span><span class="o">();</span>
+  <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">entryIterator</span> <span class="o">=</span> <span class="n">entrySet</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+  <span class="k">while</span><span class="o">(</span><span class="n">entryIterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+   <span class="nc">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">entryIterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+   <span class="nc">String</span> <span class="n">k</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">();</span>
+   <span class="nc">Integer</span> <span class="n">v</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">k</span><span class="o">+</span><span class="s">" : "</span><span class="o">+</span><span class="n">v</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//키로 엔트리 삭제</span>
+  <span class="n">map</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">);</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"총 Entry 수: "</span><span class="o">+</span><span class="n">map</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h4 id="hashtable">Hashtable</h4>
+<p>Hashtable은 HashMap과 동일한 내부 구조를 가지고 있다. 차이점은 Hashtable은 동기화된(synchronized) 메소드로 
+구성되어 있기 때문에 멀티 스레드가 동시에 Hashtable의 메소드들을 실행할 수 없다는 것이다. 따라서 멀티 스레드 환경에서도 
+안전하게 객체를 추가, 삭제할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Hashtable</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;();</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Hashtable</span><span class="o">&lt;&gt;();</span>
+</code></pre></div></div>
+
+<h4 id="properties">Properties</h4>
+<p>Properties는 Hashtable의 자식 클래스이기 때문에 Hashtable의 특징을 그대로 가지고 있다. Properties는 
+키와 값을 String 타입으로 제한한 컬렉션이다. Properties는 주로 확장자가 .properties인 프로퍼티 파일을 읽을 때 사용한다.</p>
+
+<h3 id="검색-기능을-강화시킨-컬렉션">검색 기능을 강화시킨 컬렉션</h3>
+<p>컬렉션 프레임워크는 검색 기능을 강화시킨 TreeSet과 TreeMap을 제공한다. 이름에서 알 수 있듯이 TreeSet은 Set 컬렉션이고,
+ TreeMap은 Map 컬렉션이다.</p>
+
+<h4 id="treeset">TreeSet</h4>
+<p>TreeSet은 이진트리를 기반으로 한 Set 컬렉션이다. TreeSet에 객체를 저장하면 자동으로 정렬된다. 
+부모 노드의 객체와 비교해서 낮은 것은 왼쪽 자식 노드에, 높은 것은 오른쪽 자식 노드에 저장한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">treeSet</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;();</span>
+    <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">treeSet</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;&gt;();</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>리턴 타입</th>
+      <th>메소드명</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>E</td>
+      <td>first()</td>
+      <td>제일 낮은 객체를 리턴</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>last()</td>
+      <td>제일 높은 객체를 리턴</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>lower(E e)</td>
+      <td>주어진 객체보다 바로 아래 객체를 리턴</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>higher(E e)</td>
+      <td>주어진 객체보다 바로 위 객체를 리턴</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>floor(E e)</td>
+      <td>주어진 객체와 동등한 객체가 있으면 리턴, 만약 없다면 주어진 객체의 바로 아래의 객체를 리턴</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>ceiling(E e)</td>
+      <td>주어진 객체와 동등한 객체가 있으면 리턴, 만약 없다면 주어진 객체의 바로 위의 객체를 리턴</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>pollFirst()</td>
+      <td>제일 낮은 객체를 꺼내오고 컬렉션에서 제거함</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>pollLast()</td>
+      <td>제일 높은 객체를 꺼내오고 컬렉션에서 제거함</td>
+    </tr>
+    <tr>
+      <td>Iterator<E></E></td>
+      <td>descendingIterator()</td>
+      <td>내림차순으로 정렬된 Iterator를 리턴</td>
+    </tr>
+    <tr>
+      <td>NavigableSet<E></E></td>
+      <td>descendingSet()</td>
+      <td>내림차순으로 정렬된 NaigableSet을 리턴</td>
+    </tr>
+    <tr>
+      <td>NavigableSet<E></E></td>
+      <td>headSet(E toElement, boolean inclusive)</td>
+      <td>주어진 객체보다 낮은 객체들을 NavigableSet으로 리턴, 주어진 객체 포함 여부는 두 번째 매개값에 따라 달라짐</td>
+    </tr>
+    <tr>
+      <td>NavigableSet<E></E></td>
+      <td>tailSet(E fromElement, boolean inclusive)</td>
+      <td>주어진 객체보다 높은 객체들을 NavigableSet으로 리턴, 주어진 객체 포함 여부는 두 번째 매개값에 따라 달라짐</td>
+    </tr>
+    <tr>
+      <td>NavigableSet<E></E></td>
+      <td>subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)</td>
+      <td>시작과 끝으로 주어진 객체 사이의 객체들을 NavigableSet으로 리턴. 시작과 끝 객체의 포함 여부는 두 번째, 네 번째 매개값에 따라 달라짐</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec05.exam01</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TreeSetExample</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">//TreeSet 컬렉션 생성</span>
+  <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">scores</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;&gt;();</span>
+
+  <span class="c1">//Integer 객체 저장</span>
+  <span class="n">scores</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">87</span><span class="o">);</span>
+  <span class="n">scores</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">98</span><span class="o">);</span>
+  <span class="n">scores</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">75</span><span class="o">);</span>
+  <span class="n">scores</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">95</span><span class="o">);</span>
+  <span class="n">scores</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
+
+  <span class="c1">//정렬된 Integer 객체를 하나씩 가져오기</span>
+  <span class="k">for</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">s</span> <span class="o">:</span> <span class="n">scores</span><span class="o">){</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">+</span><span class="s">" "</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//특정 Integer 객체를 가져오기</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"가장 낮은 점수 : "</span><span class="o">+</span><span class="n">scores</span><span class="o">.</span><span class="na">first</span><span class="o">());</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"가장 높은 점수 : "</span><span class="o">+</span><span class="n">scores</span><span class="o">.</span><span class="na">last</span><span class="o">());</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"95점 아래 점수 : "</span><span class="o">+</span><span class="n">scores</span><span class="o">.</span><span class="na">lower</span><span class="o">(</span><span class="mi">95</span><span class="o">));</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"95점 위의 점수 : "</span><span class="o">+</span><span class="n">scores</span><span class="o">.</span><span class="na">higher</span><span class="o">(</span><span class="mi">95</span><span class="o">));</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"95점이거나 바로 아래 점수 : "</span><span class="o">+</span><span class="n">scores</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="mi">95</span><span class="o">));</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"85점이거나 바로 위의 점수 : "</span><span class="o">+</span><span class="n">scores</span><span class="o">.</span><span class="na">ceiling</span><span class="o">(</span><span class="mi">85</span><span class="o">)+</span><span class="s">"\n"</span><span class="o">);</span>
+
+  <span class="c1">//내림차순으로 정렬하기</span>
+  <span class="nc">NavigableSet</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">descendingScores</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="na">descendingSet</span><span class="o">();</span>
+  <span class="k">for</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">s</span> <span class="o">:</span> <span class="n">descendingScores</span><span class="o">){</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">s</span><span class="o">+</span><span class="s">" "</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//범위 검색( 80 &lt;= )</span>
+  <span class="nc">NavigableSet</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">rangeSet</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="na">tailSet</span><span class="o">(</span><span class="mi">80</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+
+  <span class="c1">//범위 검색( 80 &lt;= score &lt; 90 )</span>
+  <span class="n">rangeSet</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="na">subSet</span><span class="o">(</span><span class="mi">80</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">90</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+  <span class="k">for</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">s</span> <span class="o">:</span> <span class="n">rangeSet</span><span class="o">){</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">s</span><span class="o">+</span><span class="s">" "</span><span class="o">);</span>
+  <span class="o">}</span>
+
+ <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h4 id="treemap">TreeMap</h4>
+<p>TreeMap은 이진 트리를 기반으로 한 Map 컬렉션이다. TreeSet과의 차이점은 키와 값이 저장된 Entry를 저장한다는 점이다.<br />
+TreeMap에 엔트리를 저장하면 키를 기준으로 자동 정렬되는데, 부모 키 값과 비교해서 낮은 것은 왼쪽, 높은 것은 오른쪽 자식 노드에 Entry 객체를 저장한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">TreeMap</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="n">treeMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;();</span>
+    <span class="nc">TreeMap</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="n">treeMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;&gt;();</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>리턴 타입</th>
+      <th>메소드명</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Map.Entry&lt;K,V&gt;</td>
+      <td>firstEntry()</td>
+      <td>제일 낮은 Map.Entry를 리턴</td>
+    </tr>
+    <tr>
+      <td>Map.Entry&lt;K,V&gt;</td>
+      <td>lastEntry()</td>
+      <td>제일 높은 Map.Entry를 리턴</td>
+    </tr>
+    <tr>
+      <td>Map.Entry&lt;K,V&gt;</td>
+      <td>lowerEntry(K key)</td>
+      <td>주어진 키보다 바로 아래 Map.Entry를 리턴</td>
+    </tr>
+    <tr>
+      <td>Map.Entry&lt;K,V&gt;</td>
+      <td>higherEntry(K key)</td>
+      <td>주어진 키보다 바로 위 Map.Entry를 리턴</td>
+    </tr>
+    <tr>
+      <td>Map.Entry&lt;K,V&gt;</td>
+      <td>floorEntry(K key)</td>
+      <td>주어진 키와 동등한 키가 있으면 해당 Map.Entry를 리턴, 없다면 주어진 키 바로 아래의 Map.Entry를 리턴</td>
+    </tr>
+    <tr>
+      <td>Map.Entry&lt;K,V&gt;</td>
+      <td>ceilingEntry(K key)</td>
+      <td>주어진 키와 동등한 키가 있으면 해당 Map.Entry를 리턴, 없다면 주어진 키 바로 위의 Map.Entry를 리턴</td>
+    </tr>
+    <tr>
+      <td>Map.Entry&lt;K,V&gt;</td>
+      <td>pollFirstEntry()</td>
+      <td>제일 낮은 Map.Entry를 꺼내오고 컬렉션에서 제거함</td>
+    </tr>
+    <tr>
+      <td>Map.Entry&lt;K,V&gt;</td>
+      <td>pollLastEntry()</td>
+      <td>제일 높은 Map.Entry를 꺼내오고 컬렉션에서 제거함</td>
+    </tr>
+    <tr>
+      <td>NavigableSet<K></K></td>
+      <td>descendingKeySet()</td>
+      <td>내림차순으로 정렬된 키의 NavigableSet을 리턴</td>
+    </tr>
+    <tr>
+      <td>NavigableMap&lt;K,V&gt;</td>
+      <td>descendingMap()</td>
+      <td>내림차순으로 정렬된 Map.Entry의 NavigableMap을 리턴</td>
+    </tr>
+    <tr>
+      <td>NavigableMap&lt;K,V&gt;</td>
+      <td>headMap(K toKey, boolean inclusive)</td>
+      <td>주어진 키보다 낮은 Map.Entry들을 NavigableMap으로 리턴, 주어진 키의 Map.Entry 포함 여부는 두 번째 매개값에 따라 달라짐</td>
+    </tr>
+    <tr>
+      <td>NavigableMap&lt;K,V&gt;</td>
+      <td>tailMap(K fromKey, boolean inclusive)</td>
+      <td>주어진 객체보다 높은 Map.Entry들을 NavigableMap으로 리턴, 주어진 객체 포함 여부는 두 번째 매개값에 따라 달라짐</td>
+    </tr>
+    <tr>
+      <td>NavigableMap&lt;K,V&gt;</td>
+      <td>subMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive)</td>
+      <td>시작과 끝으로 주어진 키 사이의 Map.Entry들을 NavigableMap 컬렉션으로 반환, 시작과 끝 키의 Map.Entry 포함 여부는 두 번째, 네 번째 매개값에 따라 달라짐</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec05.exam02</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TreeMapExample</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">//TreeMap 컬렉션 생성</span>
+  <span class="nc">TreeMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">treeMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;&gt;();</span>
+
+  <span class="c1">//엔트리 저장</span>
+  <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"apple"</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+  <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"forever"</span><span class="o">,</span> <span class="mi">60</span><span class="o">);</span>
+  <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"description"</span><span class="o">,</span> <span class="mi">40</span><span class="o">);</span>
+  <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"ever"</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
+  <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"zoo"</span><span class="o">,</span> <span class="mi">80</span><span class="o">);</span>
+  <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"base"</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+  <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"guess"</span><span class="o">,</span> <span class="mi">70</span><span class="o">);</span>
+  <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"cherry"</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
+
+  <span class="c1">//정렬된 엔트리를 하나씩 가져오기</span>
+  <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">entrySet</span> <span class="o">=</span> <span class="n">treeMap</span><span class="o">.</span><span class="na">entrySet</span><span class="o">();</span>
+  <span class="k">for</span><span class="o">(</span><span class="nc">Entry</span><span class="o">&lt;</span><span class="n">string</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">:</span> <span class="n">entrySet</span><span class="o">){</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">()+</span><span class="s">" "</span><span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//특정 키에 대한 값 가져오기</span>
+  <span class="nc">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">entry</span> <span class="o">=</span> <span class="n">treeMap</span><span class="o">.</span><span class="na">firstEntry</span><span class="o">();</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"제일 앞 단어: "</span><span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">()+</span><span class="s">"-"</span><span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+  <span class="n">entry</span> <span class="o">=</span> <span class="n">treeMap</span><span class="o">.</span><span class="na">lastEntry</span><span class="o">();</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"제일 뒤 단어: "</span><span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">()+</span><span class="s">"-"</span><span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+  <span class="n">entry</span> <span class="o">=</span> <span class="n">treeMap</span><span class="o">.</span><span class="na">lowerEntry</span><span class="o">(</span><span class="s">"ever"</span><span class="o">);</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"ever 앞 단어: "</span><span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">()+</span><span class="s">"-"</span><span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">()+</span><span class="s">"\n"</span><span class="o">);</span>
+
+  <span class="c1">//내림차순으로 정렬하기</span>
+  <span class="nc">NavigableMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">descendingMap</span> <span class="o">=</span> <span class="n">treeMap</span><span class="o">.</span><span class="na">descendingMap</span><span class="o">();</span>
+  <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">descendingEntrySet</span> <span class="o">=</span> <span class="n">descendingMap</span><span class="o">.</span><span class="na">entrySet</span><span class="o">();</span>
+  <span class="k">for</span><span class="o">(</span><span class="nc">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">e</span> <span class="o">:</span> <span class="n">descendingEntrySet</span><span class="o">){</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getKey</span><span class="o">()+</span><span class="s">"-"</span><span class="o">+</span><span class="n">e</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+  <span class="c1">//범위 검색</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[c~h 사이의 단어 검색]"</span><span class="o">);</span>
+  <span class="nc">NavigableMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">rangeMap</span> <span class="o">=</span> <span class="n">treeMap</span><span class="o">.</span><span class="na">subMap</span><span class="o">(</span><span class="s">"c"</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="s">"h"</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+  <span class="k">for</span><span class="o">(</span><span class="nc">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">e</span> <span class="o">:</span> <span class="n">rangeMap</span><span class="o">.</span><span class="na">entrySet</span><span class="o">()){</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getKey</span><span class="o">()+</span><span class="s">"-"</span><span class="o">+</span><span class="n">e</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+  <span class="o">}</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

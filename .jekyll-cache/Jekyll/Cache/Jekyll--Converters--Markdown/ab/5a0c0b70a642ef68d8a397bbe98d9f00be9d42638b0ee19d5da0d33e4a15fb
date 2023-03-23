@@ -1,0 +1,361 @@
+I"��<h2 id="인터페이스">인터페이스</h2>
+
+<hr />
+
+<h3 id="인터페이스의-역할">인터페이스의 역할</h3>
+
+<p>인터페이스는 사전적인 의미로 두 장치를 연결하는 접속기를 말한다. 여기서 두 장치를 서로 다른 객체로 본다면, 인터페이스는 이 두객체를 연결하는 역할을 한다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/97949070/227076585-b70db42f-13fa-414f-b5fe-294d707f6000.png" alt="interface02" /></p>
+
+<ul>
+  <li>이미지 출처 : https://hyuntaekhong.github.io/assets/images/java/java-basic20/interface02.png</li>
+</ul>
+
+<h3 id="인터페이스-선언">인터페이스 선언</h3>
+<p>인터페이스 선언은 class 키워드 대신 interface 키워드를 사용한다. 접근 제한자로는 클래스와 마찬가지로 같은 패키지 내에서만 사용 가능한 default, <br />
+패키지와 상관없이 사용하는 public을 붙일 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">interface</span> <span class="nc">인터페이스명</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>    <span class="c1">//default 접근 제한</span>
+    <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">인터페이스명</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>     <span class="c1">//pubilc 접근 제한</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">RemoteControl</span> <span class="o">{</span>
+    <span class="c1">//public 추상 메소드</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="구현-클래스-선언">구현 클래스 선언</h3>
+<p>implements 키워드는 해당 클래스가 인터페이스를 통해 사용할 수 있다는 표시이며, 인터페이스의 추상 메소드를 재정의한 메소드가 있다는 뜻이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">B</span> <span class="kd">implements</span> <span class="n">인터페이스명</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>앞에서 선언한 RemoteControl의 추상 메소드인 turnOn()을 다음과 같이 재정의한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Television</span> <span class="kd">implements</span> <span class="nc">RemoteControl</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"TV를 켭니다."</span><span class="o">);</span>     <span class="c1">//인터페이스에 선언된 turnOn() 추상 메소드 재정의</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Audio</span> <span class="kd">implements</span> <span class="nc">RemoteControl</span><span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Audio를 켭니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteControlExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">RemoteControl</span> <span class="n">rc</span><span class="o">;</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Television</span><span class="o">();</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">turnOn</span><span class="o">();</span>
+
+        <span class="n">rc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Audio</span><span class="o">();</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">turnOn</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="상수-필드">상수 필드</h3>
+<p>인터페이스는 public static final 특성을 갖는 불변의 상수 필드를 멤버로 가질 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="o">]</span> <span class="n">타입</span> <span class="n">상수명</span> <span class="o">=</span> <span class="n">값</span><span class="o">;</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec03</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">RemoteControl</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="no">MAX_VOLUME</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="no">MIN_VOLUME</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec03</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteControlExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"리모컨 최대 볼륨: "</span><span class="o">+</span><span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MAX_VOLUME</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"리모컨 최저 볼륨: "</span><span class="o">+</span><span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MIN_VOLUME</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="추상-메소드">추상 메소드</h3>
+<p>인터페이스는 구현 클래스가 재정의해야 하는 public 추상 메소드를 멤버로 가질 수 있다. <br />
+추상 메소드는 리턴 타입, 메소드명, 매개변수만 기술되고 중괄호 {}를 붙이지 않는 메소드를 말한다. <br />
+public abstract를 생략하더라도 컴파일 과정에서 자동으로 붙게 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span><span class="kd">public</span> <span class="kd">abstract</span> <span class="o">]</span> <span class="n">리턴타입</span> <span class="n">메소드명</span><span class="o">(</span><span class="n">매개변수</span><span class="o">,</span> <span class="o">...);</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec04</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">RemoteControl</span> <span class="o">{</span>
+    <span class="c1">//상수 필드</span>
+    <span class="kt">int</span> <span class="no">MAX_VOLUME</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="no">MIN_VOLUME</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="c1">//추상 메소드 - 메소드 선언부만 작성</span>
+    <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">setVolume</span><span class="o">(</span><span class="kt">int</span> <span class="n">volume</span><span class="o">);</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec04</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Television</span> <span class="kd">implements</span> <span class="nc">RemoteControl</span> <span class="o">{</span>
+    <span class="c1">//필드</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">volume</span><span class="o">;</span>
+
+    <span class="c1">//turnOn() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"TV를 켭니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//turnOff() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"TV를 끕니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//setVolume() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVolume</span><span class="o">(</span><span class="kt">int</span> <span class="n">volume</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">volume</span><span class="o">&gt;</span> <span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MAX_VOLUME</span><span class="o">){</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">volume</span> <span class="o">=</span> <span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MAX_VOLUME</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">volume</span><span class="o">&lt;</span><span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MIN_VOLUME</span><span class="o">){</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">volume</span> <span class="o">=</span> <span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MIN_VOLUME</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">volume</span> <span class="o">=</span> <span class="n">volume</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"현재 TV 볼륨: "</span><span class="o">+</span><span class="k">this</span><span class="o">.</span><span class="na">volume</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec04</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Audio</span> <span class="kd">implements</span> <span class="nc">RemoteControl</span><span class="o">{</span>
+    <span class="c1">//필드</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">volume</span><span class="o">;</span>
+
+    <span class="c1">//turnOn() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Audio를 켭니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//turnOff() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Audio를 끕니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//setVolume() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVolume</span><span class="o">(</span><span class="kt">int</span> <span class="n">volume</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">volume</span> <span class="o">&gt;</span> <span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MAX_VOLUME</span><span class="o">){</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">volume</span> <span class="o">=</span> <span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MAX_VOLUME</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">volume</span> <span class="o">&lt;</span> <span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MIN_VOLUME</span><span class="o">){</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">volume</span> <span class="o">=</span> <span class="nc">RemoteControl</span><span class="o">.</span><span class="na">MIN_VOLUME</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">volume</span> <span class="o">=</span> <span class="n">volume</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"현재 Audio 볼륨: "</span><span class="o">+</span><span class="n">volume</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<p>구현 객체가 대입되면 인터페이스 변수로 추상 메소드를 호출할 수 있게 된다. 이때 어떤 구현 객체가 대입되었는지에 따라 실행 내용이 달라진다.<br />
+Television이 대입되었다면 Television의 재정의된 메소드가, Audio가 대입되었다면 Audio의 재정의된 메소드가 실행된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec04</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteControlExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//인터페이스 변수 선언</span>
+        <span class="nc">RemoteControl</span> <span class="n">rc</span><span class="o">;</span>
+
+        <span class="c1">//Television 객체를 생성하고 인터페이스 변수에 대입</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Television</span><span class="o">();</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">turnOn</span><span class="o">();</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">setVolume</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">turnOff</span><span class="o">();</span>
+
+        <span class="c1">//Audio 객체를 생성하고 인터페이스 변수에 대입</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Audio</span><span class="o">();</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">turnOn</span><span class="o">();</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">setVolume</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">turnOff</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="다중-인터페이스-구현">다중 인터페이스 구현</h3>
+<p>구현 객체는 여러 개의 인터페이스를 implements 할 수 있다. 구현 클래스는 다음과 같이 인터페이스 A와 인터페이스 B를 implements 뒤에 쉼표로 구분해서 작성해,
+<br /> 모든 인터페이스가 가진 추상 메소드를 재정의해야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">구현클래스명</span> <span class="kd">implements</span> <span class="n">인터페이스A</span><span class="o">,</span> <span class="n">인터페이스B</span> <span class="o">{</span>
+        <span class="c1">//모든 추상 메소드 재정의</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">인터페이스A</span> <span class="n">변수</span> <span class="o">=</span> <span class="k">new</span> <span class="n">구현클래스명</span><span class="o">(...);</span>
+    <span class="n">인터페이스B</span> <span class="n">변수</span> <span class="o">=</span> <span class="k">new</span> <span class="n">구현클래스명</span><span class="o">(...);</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec08</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">RemoteControl</span> <span class="o">{</span>
+    <span class="c1">//추상 메소드</span>
+    <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec08</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Searchable</span> <span class="o">{</span>
+    <span class="c1">//추상 메소드</span>
+    <span class="kt">void</span> <span class="nf">search</span><span class="o">(</span><span class="nc">String</span> <span class="n">url</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec08</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SmartTelevision</span> <span class="kd">implements</span> <span class="nc">RemoteControl</span><span class="o">,</span> <span class="nc">Searchable</span><span class="o">{</span>
+    <span class="c1">//turnOn() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOn</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"TV를 켭니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//turnOff() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"TV를 끕니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//search() 추상 메소드 오버라이딩</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">search</span><span class="o">(</span><span class="nc">String</span> <span class="n">url</span><span class="o">){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">url</span><span class="o">+</span><span class="s">"을 검색합니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec08</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MultiInterfaceImplExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//RemoteControl 인터페이스 변수 선언 및 구현 객체 대입</span>
+        <span class="nc">RemoteControl</span> <span class="n">rc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartTelevision</span><span class="o">();</span>
+        <span class="c1">//RemoteControl 인터페이스에 선언된 추상 메소드만 호출 가능</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">turnOn</span><span class="o">();</span>
+        <span class="n">rc</span><span class="o">.</span><span class="na">turnOff</span><span class="o">();</span>
+        <span class="c1">//Searchable 인터페이스 변수 선언 및 구현 객체 대입</span>
+        <span class="nc">Searchable</span> <span class="n">searchable</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartTelevision</span><span class="o">();</span>
+        <span class="c1">//Searchable 인터페이스에 선언된 추상 메소드만 호출 가능</span>
+        <span class="n">searchable</span><span class="o">.</span><span class="na">search</span><span class="o">(</span><span class="s">"https://www.youtube.com"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="인터페이스-상속">인터페이스 상속</h3>
+<p>인터페이스도 다른 인터페이스를 상속할 수 있으며, 클래스와는 달리 다중 상속을 허용한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">자식인터페이스</span> <span class="kd">extends</span> <span class="n">부모인터페이스1</span><span class="o">,</span> <span class="n">부모인터페이스2</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec09</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">InterfaceA</span> <span class="o">{</span>
+    <span class="c1">//추상 메소드</span>
+    <span class="kt">void</span> <span class="nf">methodA</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec09</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">InterfaceB</span> <span class="o">{</span>
+    <span class="c1">//추상 메소드</span>
+    <span class="kt">void</span> <span class="nf">methodB</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec09</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">InterfaceC</span> <span class="kd">extends</span> <span class="nc">InterfaceA</span><span class="o">,</span> <span class="nc">InterfaceB</span><span class="o">{</span>
+    <span class="c1">//추상 메소드</span>
+    <span class="kt">void</span> <span class="nf">methodC</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec09</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InterfaceCImpl</span> <span class="kd">implements</span> <span class="nc">InterfaceC</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodA</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"InterfaceCImpl-mehtodA() 실행"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodB</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"InterfaceCImpl-mehtodB() 실행"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodC</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"InterfaceCImpl-mehtodC() 실행"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch08.sec09</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExtendsExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">InterfaceCImpl</span> <span class="n">impl</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">InterfaceCImpl</span><span class="o">();</span>
+
+        <span class="nc">InterfaceA</span> <span class="n">ia</span> <span class="o">=</span> <span class="n">impl</span><span class="o">;</span>
+        <span class="n">ia</span><span class="o">.</span><span class="na">methodA</span><span class="o">();</span>
+        <span class="c1">//ia.methodB(); --&gt; X</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">InterfaceB</span> <span class="n">ib</span> <span class="o">=</span> <span class="n">impl</span><span class="o">;</span>
+        <span class="c1">//ib.methodA(); --&gt; X</span>
+        <span class="n">ib</span><span class="o">.</span><span class="na">methodB</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">InterfaceC</span> <span class="n">ic</span> <span class="o">=</span> <span class="n">impl</span><span class="o">;</span>
+        <span class="n">ic</span><span class="o">.</span><span class="na">methodA</span><span class="o">();</span>
+        <span class="n">ic</span><span class="o">.</span><span class="na">methodB</span><span class="o">();</span>
+        <span class="n">ic</span><span class="o">.</span><span class="na">methodC</span><span class="o">();</span>
+
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

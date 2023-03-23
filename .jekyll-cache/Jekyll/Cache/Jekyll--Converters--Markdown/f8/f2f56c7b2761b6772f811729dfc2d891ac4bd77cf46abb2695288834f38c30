@@ -1,0 +1,126 @@
+I"(<h2 id="stringbuilder-stringtokenizer">Stringbuilder, StringTokenizer</h2>
+
+<hr />
+
+<h3 id="stringbuilder">Stringbuilder</h3>
+
+<p>StringBuilder는 내부 버퍼(데이터를 저장하는 메모리)에 문자열을 저장해두고 그 안에서 추가, 수정, 삭제 작업을 하도록 설계되어 있다.
+<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>리턴타입</th>
+      <th>메소드(매개변수)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StringBuilder</td>
+      <td>append(문자열)</td>
+      <td>문자열을 끝에 추가</td>
+    </tr>
+    <tr>
+      <td>StringBuilder</td>
+      <td>insert(위치, 문자열)</td>
+      <td>문자열을 지정 위치에 추가</td>
+    </tr>
+    <tr>
+      <td>StringBuilder</td>
+      <td>delete(시작위치, 끝 위치)</td>
+      <td>문자열 일부를 삭제</td>
+    </tr>
+    <tr>
+      <td>StringBuilder</td>
+      <td>replace(시작위치, 끝 위치, 문자열)</td>
+      <td>문자열 일부를 대체</td>
+    </tr>
+    <tr>
+      <td>String</td>
+      <td>toString()</td>
+      <td>완성된 문자열을 리턴</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>toString() 을 제외한 다른 메소드는 StringBuilder를 다시 리터하기 때문에 연이어서 다른 메소드를 호출할 수 있는 메소드 체이닝 패턴을 사용할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch12.sec05</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringBuilderExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">data</span>  <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"DEF"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">"ABC"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>   <span class="c1">// ABCEF</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="stringtokenizer">StringTokenizer</h3>
+<p>문자열이 구분자로 연결되어 있을 경우, 구분자를 기준으로 문자열을 분리하려면 String의 split() 메소드를 이용하거나 java.util의 패키지의 StringTokenizer 클래스를 이용할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">"홍길동$이수홍,박연수,김자바-최명호"</span><span class="o">;</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="n">names</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"$|,|-"</span><span class="o">)</span>
+
+    <span class="nc">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">"홍길동/이수홍/박연수"</span><span class="o">;</span>
+    <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">data</span><span class="o">,</span> <span class="s">"/"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>리턴타입</th>
+      <th>메소드(매개변수)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>int</td>
+      <td>countTokens()</td>
+      <td>분리할 수 있는 문자열의 총 수</td>
+    </tr>
+    <tr>
+      <td>boolean</td>
+      <td>hasMoreTokens()</td>
+      <td>남아 있는 문자열이 있는지 여부</td>
+    </tr>
+    <tr>
+      <td>String</td>
+      <td>nextToken()</td>
+      <td>문자열을 하나씩 가져옴</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch12.sec05</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringTokenizerExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">data1</span> <span class="o">=</span> <span class="s">"홍길동&amp;이수홍,박연수"</span><span class="o">;</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"&amp;|,"</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">token</span> <span class="o">:</span> <span class="n">arr</span><span class="o">)</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">String</span> <span class="n">data2</span> <span class="o">=</span> <span class="s">"홍길동/이수홍/박연수"</span><span class="o">;</span>
+        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">data2</span><span class="o">,</span> <span class="s">"/"</span><span class="o">);</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">hasMoreTokens</span><span class="o">()){</span>
+            <span class="nc">String</span> <span class="n">token</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

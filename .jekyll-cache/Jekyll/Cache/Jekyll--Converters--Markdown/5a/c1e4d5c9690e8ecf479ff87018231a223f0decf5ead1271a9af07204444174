@@ -1,0 +1,30 @@
+I"�<h2 id="배열복사">배열복사</h2>
+
+<hr />
+
+<h3 id="systemarraycopy">System.arraycopy()</h3>
+<p>System.arraycopy(Object src, int srcPosm Object dest, int destPos, int length);
+System.arraycopy(arr1, 0, arr2, 0, arr1.length);</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch05.sec09</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayCopyExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 길이 3인 배열</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">oldStrArray</span> <span class="o">=</span> <span class="o">{</span><span class="s">"java"</span><span class="o">,</span> <span class="s">"array"</span><span class="o">,</span> <span class="s">"copy"</span><span class="o">};</span>
+        <span class="c1">// 길이 5인 배열을 새로 생성</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">newStrArray</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+        <span class="c1">// 배열 항목 복사</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">oldStrArray</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">newStrArray</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">oldStrArray</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+        <span class="c1">// 배열 항목 출력</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span> <span class="n">newStrArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">newStrArray</span><span class="o">[</span><span class="n">i</span><span class="o">]+</span><span class="s">", "</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

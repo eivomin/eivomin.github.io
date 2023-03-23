@@ -1,0 +1,47 @@
+I"5<h2 id="웹개발-종합반-4주차">웹개발 종합반 4주차</h2>
+
+<hr />
+
+<h4 id="프로젝트-셋팅-">프로젝트 셋팅 <br /></h4>
+
+<p><img src="https://user-images.githubusercontent.com/97949070/226551734-a8461616-2c77-4376-9d60-66eaa40c6104.png" alt="스크린샷 2023-03-21 오후 5 16 25" /></p>
+
+<h4 id="필요한-패키지-">필요한 패키지 <br /></h4>
+<p>flask, pymongo, dnspython, bs4, requests</p>
+
+<h3 id="4주차-숙제--별점-선택-기능-추가하기">4주차 숙제 : 별점 선택 기능 추가하기</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">movie_post</span><span class="p">():</span>
+    <span class="n">url_receive</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="s">'url_give'</span><span class="p">]</span>
+    <span class="n">comment_receive</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="s">'comment_give'</span><span class="p">]</span>
+    <span class="n">star_receive</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="s">'star_give'</span><span class="p">]</span>
+
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'User-Agent'</span><span class="p">:</span> <span class="s">'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'</span><span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url_receive</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+
+    <span class="n">ogtitle</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'meta[property="og:title"]'</span><span class="p">)[</span><span class="s">'content'</span><span class="p">]</span>
+    <span class="n">ogdesc</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'meta[property="og:description"]'</span><span class="p">)[</span><span class="s">'content'</span><span class="p">]</span>
+    <span class="n">ogimage</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'meta[property="og:image"]'</span><span class="p">)[</span><span class="s">'content'</span><span class="p">]</span>
+
+    <span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'title'</span> <span class="p">:</span> <span class="n">ogtitle</span><span class="p">,</span>
+        <span class="s">'desc'</span> <span class="p">:</span> <span class="n">ogdesc</span><span class="p">,</span>
+        <span class="s">'image'</span> <span class="p">:</span> <span class="n">ogimage</span><span class="p">,</span>
+        <span class="s">'comment'</span> <span class="p">:</span> <span class="n">comment_receive</span><span class="p">,</span>
+        <span class="s">'star'</span> <span class="p">:</span> <span class="n">star_receive</span>
+    <span class="p">}</span>
+
+    <span class="n">db</span><span class="p">.</span><span class="n">movies</span><span class="p">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s">'msg'</span><span class="p">:</span><span class="s">'저장완료!'</span><span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="오늘-목표">오늘 목표</h3>
+<ol>
+  <li>웹개발 종합반 3주차, 4주차 복습</li>
+  <li>이것이 자바다 Part 02 객체 지향 프로그래밍 공부</li>
+  <li>삼성 sw 역량 테스트 기출문제 2048(Easy) 풀이_</li>
+</ol>
+:ET

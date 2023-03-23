@@ -1,0 +1,362 @@
+I"��<h2 id="스트림">스트림</h2>
+
+<hr />
+
+<p>컬렉션 및 배열에 저장된 요소를 반복 처리하기 위해서는 for 문을 이용하거나 Iterator(반복자)를 이용했다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="o">....;</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++){</span>
+        <span class="nc">String</span> <span class="n">item</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="c1">//item 처리</span>
+        <span class="o">}</span>
+</code></pre></div></div>
+<p>그리고 Set에서 요소를 하나씩 처리하기 위해 Iterator를 다음과 같이 사용했다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="o">...;</span>
+    <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+        <span class="nc">String</span> <span class="n">item</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="c1">//요소 처리</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+<p>Java 8부터는 또 다른 방법으로 컬렉션 및 배열의 요소를 반복 처리하기 위해 스트림을 사용할 수 있다. 스트림은
+ 요소들이 하나씩 흘러가면서 처리된다는 의미를 가지고 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">();</span>
+    <span class="n">stream</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">item</span> <span class="o">-&gt;</span> <span class="c1">//item 처리);</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">package</span> <span class="nn">ch17.sec01.exam01</span><span class="o">;</span>
+ 
+ <span class="kn">import</span> <span class="nn">java.util.stream.Stream</span><span class="o">;</span>
+ <span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">StreamExample</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+   <span class="c1">//Set 컬렉션 생성</span>
+   <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+   <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">);</span>
+   <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"신용권"</span><span class="o">);</span>
+   <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"감자바"</span><span class="o">);</span>
+ 
+   <span class="c1">//Stream을 이용한 요소 반복 처리</span>
+   <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">stream</span><span class="o">();</span>
+   <span class="n">stream</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">name</span><span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">));</span>
+  <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Stream은 Iterator와 비슷한 반복자이지만, 다음과 같은 차이점을 가지고 있다.
+1) 내부 반복자이므로 처리 속도가 빠르고 병렬 처리에 효율적이다.
+2) 람다식으로 다양한 요소 처리를 정의할 수 있다.
+3) 중간 처리와 최종 처리를 수행하도록 파이프 라인을 형성할 수 있다.</p>
+
+<h3 id="컬렉션으로부터-스트림-얻기">컬렉션으로부터 스트림 얻기</h3>
+<p>java.util.Collection 인터페이스는 스트림과 parallelStream() 메소드를 가지고 있기 때문에 자식 인터페이스인 List와 Set 인터페이스를 구현한
+ 모든 컬렉션에서 객체 스트림을 얻을 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec04.exam01</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">pno</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">company</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">price</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">int</span> <span class="n">pno</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">company</span><span class="o">,</span> <span class="kt">int</span> <span class="n">price</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">pno</span> <span class="o">=</span> <span class="n">pno</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">company</span> <span class="o">=</span> <span class="n">company</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">price</span> <span class="o">=</span> <span class="n">price</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getPno</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">pno</span><span class="o">;}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">name</span><span class="o">;}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getCompany</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">company</span><span class="o">;}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getPrice</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">price</span><span class="o">;}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"{"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"pno: "</span><span class="o">+</span><span class="n">pno</span><span class="o">+</span><span class="s">", "</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"name: "</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s">", "</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"company: "</span><span class="o">+</span><span class="n">company</span><span class="o">+</span><span class="s">", "</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"price: "</span><span class="o">+</span><span class="n">price</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"}"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec04.exam01</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.Stream</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StreamExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//List 컬렉션 생성</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="nc">Product</span> <span class="n">product</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Product</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="s">"상품"</span><span class="o">+</span><span class="n">i</span><span class="o">,</span> <span class="s">"멋진 회사 "</span><span class="o">,</span>
+                    <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="mi">10000</span><span class="o">*</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()));</span>
+            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">product</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">//객체 스트림 얻기</span>
+        <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">();</span>
+        <span class="n">stream</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">p</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">p</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="배열로부터-스트림-얻기">배열로부터 스트림 얻기</h3>
+<p>java.util.Arrays 클래스를 이용하면 다양한 종류의 배열로부터 스트림을 얻을 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec04.exam02</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.Stream</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StreamExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">strArray</span> <span class="o">=</span> <span class="o">{</span><span class="s">"홍길동"</span><span class="o">,</span> <span class="s">"신용권"</span><span class="o">,</span> <span class="s">"김미나"</span><span class="o">};</span>
+        <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">strStream</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">strArray</span><span class="o">);</span>
+        <span class="n">strStream</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">item</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">item</span><span class="o">+</span><span class="s">","</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">intArray</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">IntStream</span> <span class="n">intStream</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">intArray</span><span class="o">);</span>
+        <span class="n">intStream</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">item</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">item</span><span class="o">+</span><span class="s">","</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="숫자-범위로부터-스트림-얻기">숫자 범위로부터 스트림 얻기</h3>
+<p>IntStream 또는 LongStream의 정적 메소드인 range()와 rangeClosed() 메소드를 이용하면 특정 범위의 정수 스트림을 얻을 수 있다. 
+첫 번째 매개값은 시작 수이고 두 번째 매개값은 끝 수인데, 끝 수를 포함하지 않으면 range(), 포함하면 rangeClosed()를 사용한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec04.exam03</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StreamExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">sum</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">IntStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">rangeClosed</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+        <span class="n">stream</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">sum</span><span class="o">+=</span><span class="n">a</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"총합 : "</span><span class="o">+</span><span class="n">sum</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="요소-걸러내기필터링">요소 걸러내기(필터링)</h3>
+<p>필터링은 요소를 걸러내는 중간 처리 기능이다. 필터링 메소드에는 다음과 같이 distinct()와 filter()가 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/97949070/227077195-6480e5c9-9ffd-4468-a89f-dfeb04f040dd.png" alt="스크린샷 2023-03-23 오전 9 38 18" /></p>
+
+<p>dinstinct() 메소드는 요소의 중복을 제거한다. 객체 스트림(Stream)일 경우, equals() 메소드의 리턴값이 true이면 
+동일한 요소로 판단한다. IntStream, LongStream, DoubleStream은 같은 값일 경우 중복을 제거한다.</p>
+
+<p>Predicate는 함수형 인터페이스로, 다음과 같은 종류가 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/97949070/227077216-17243c2d-ecb3-4c41-a6a6-e01898892bcf.png" alt="스크린샷 2023-03-23 오전 9 41 25" /></p>
+
+<p>Predicate<T>을 람다식으로 표현하면 다음과 같다.</T></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="no">T</span> <span class="o">-&gt;</span> <span class="o">{...</span> <span class="k">return</span> <span class="kc">true</span><span class="o">}</span>
+ <span class="n">또는</span>
+ <span class="no">T</span> <span class="o">-&gt;</span> <span class="kc">true</span><span class="o">;</span>     <span class="c1">//return 문만 있을 경우 중괄호와 return 키워드 생략 가능</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec05</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FilteringExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//List 컬렉션 생성</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"신용권"</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"감자바"</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"신용권"</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"신민철"</span><span class="o">);</span>
+
+        <span class="c1">//중복 요소 제거</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">distinct</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">n</span><span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">//신으로 시작하는 요소만 필터링</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">n</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"신"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">n</span><span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        
+        <span class="c1">//중복 요소를 먼저 제거하고, 신으로 시작하는 요소만 필터링</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">distinct</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">n</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"신"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">n</span><span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="요소-정렬">요소 정렬</h3>
+<p>정렬은 요소를 오름차순 또는 내림차순으로 정렬하는 중간 처리 기능이다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>리턴 타입</th>
+      <th>메소드(매개변수)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Stream<T></T></td>
+      <td>sorted()</td>
+      <td>Comparable 요소를 정렬한 새로운 스트림 생성</td>
+    </tr>
+    <tr>
+      <td>Stream<T></T></td>
+      <td>sorted(Comparator<T>)</T></td>
+      <td>요소를 Comparator에 따라 정렬한 새 스트림 생성</td>
+    </tr>
+    <tr>
+      <td>Doublestream</td>
+      <td>sorted()</td>
+      <td>double 요소를 올림차순으로 정렬</td>
+    </tr>
+    <tr>
+      <td>IntStream</td>
+      <td>sorted</td>
+      <td>int 요소를 올림차순으로 정렬</td>
+    </tr>
+    <tr>
+      <td>LongStream</td>
+      <td>sorted</td>
+      <td>long 요소를 올림차순으로 정렬</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="comparable-구현-객체의-정렬">Comparable 구현 객체의 정렬</h4>
+<p>스트림의 요소가 객체일 경우 객체가 Comparable을 구현하고 있어야만 sorted() 메소드를 사용하여 정렬할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Xxx</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+ <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Xxx</span><span class="o">&gt;</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">();</span>
+ <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Xxx</span><span class="o">&gt;</span> <span class="n">orderedStream</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="na">sorted</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>만약 내림차순으로 정렬하고 싶다면 다음과 같이 Comparator.reverseOrder() 메소드가 리턴하는 Comparator를 매개값으로 제공하면 된다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Xxx</span><span class="o">&gt;</span> <span class="n">reverseOrderedStream</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="na">sorted</span><span class="o">(</span><span class="nc">Comparator</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec07.exam01</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Student</span><span class="o">&gt;{</span>
+ <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+ <span class="kd">private</span> <span class="kt">int</span> <span class="n">score</span><span class="o">;</span>
+
+ <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">score</span><span class="o">){</span>
+  <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+  <span class="k">this</span><span class="o">.</span><span class="na">score</span> <span class="o">=</span> <span class="n">score</span><span class="o">;</span>
+ <span class="o">}</span>
+ <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">name</span><span class="o">;}</span>
+ <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getScore</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">score</span><span class="o">;}</span>
+
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Student</span> <span class="n">o</span><span class="o">){</span>
+  <span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">score</span><span class="o">,</span> <span class="n">o</span><span class="o">.</span><span class="na">score</span><span class="o">);</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec07.exam01</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortingExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//List 컬렉션 생성</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Student</span><span class="o">&gt;</span> <span class="n">studentList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">,</span> <span class="mi">30</span><span class="o">));</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"신용권"</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"유미선"</span><span class="o">,</span> <span class="mi">20</span><span class="o">));</span>
+
+        <span class="c1">//점수를 기준으로 오름차순으로 정렬한 새 스트림 얻기</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">sorted</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getName</span><span class="o">()+</span><span class="s">": "</span><span class="o">+</span><span class="n">s</span><span class="o">.</span><span class="na">getScore</span><span class="o">()));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">//점수를 기준으로 내림차순으로 정렬한 새 스트림 얻기</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">sorted</span><span class="o">(</span><span class="nc">Comparator</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span><span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getName</span><span class="o">()+</span><span class="s">": "</span><span class="o">+</span><span class="n">s</span><span class="o">.</span><span class="na">getScore</span><span class="o">()));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="comparator를-이용한-정렬">Comparator를 이용한 정렬</h4>
+<p>요소 객체가 Comparable을 구현하고 있지 않다면, 비교자를 제공하면 요소를 정렬시킬 수 있다. 비교자는 
+Comparator 인터페이스를 구현한 객체를 말하는데 다음과 같이 간단하게 람다식으로 작성할 수도 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">sorted</span><span class="o">((</span><span class="n">o1</span><span class="o">,</span> <span class="n">o2</span><span class="o">)-&gt;{...})</span>
+</code></pre></div></div>
+<p>중괄호 안에는 o1이 o2보다 작으면 음수, 같으면 0, 크면 양수를 리턴하도록 작성하면 된다. 
+o1과 o2가 정수일 경우에는 Integer.compare(o1, o2)를, 실수일 경우에는 Double.compare(o1, o2)를 호출해서 리턴값을 리턴해도 좋다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec07.exam02</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+ <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+ <span class="kd">private</span> <span class="kt">int</span> <span class="n">score</span><span class="o">;</span>
+
+ <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">score</span><span class="o">){</span>
+  <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+  <span class="k">this</span><span class="o">.</span><span class="na">score</span> <span class="o">=</span> <span class="n">score</span><span class="o">;</span>
+ <span class="o">}</span>
+ <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+ <span class="o">}</span>
+ <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getScore</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">score</span><span class="o">;</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch17.sec07.exam02</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortingExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//List 컬렉션 생성</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Student</span><span class="o">&gt;</span> <span class="n">studentList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">,</span><span class="mi">30</span><span class="o">));</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"신용권"</span><span class="o">,</span><span class="mi">10</span><span class="o">));</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"유미선"</span><span class="o">,</span><span class="mi">20</span><span class="o">));</span>
+
+        <span class="c1">//점수를 기준으로 오름차순으로 정렬한 새 스트림 얻기</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">sorted</span><span class="o">((</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">)-&gt;</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">getScore</span><span class="o">(),</span> <span class="n">s2</span><span class="o">.</span><span class="na">getScore</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getName</span><span class="o">()+</span><span class="s">": "</span><span class="o">+</span><span class="n">s</span><span class="o">.</span><span class="na">getScore</span><span class="o">()));</span>
+
+        <span class="c1">//점수를 기준으로 내림차순으로 정렬한 새 스트림 얻기</span>
+        <span class="n">studentList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">sorted</span><span class="o">((</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">)-&gt;</span><span class="nc">Integer</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">s2</span><span class="o">.</span><span class="na">getScore</span><span class="o">(),</span> <span class="n">s1</span><span class="o">.</span><span class="na">getScore</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span><span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getName</span><span class="o">()+</span><span class="s">": "</span><span class="o">+</span><span class="n">s</span><span class="o">.</span><span class="na">getScore</span><span class="o">()));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

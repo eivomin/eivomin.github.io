@@ -1,0 +1,80 @@
+I"<h2 id="switch문-expressions">switch문 Expressions</h2>
+
+<hr />
+
+<h4 id="java-12-이후부터-switch문에서-expressions표현식-사용가능">Java 12 이후부터 switch문에서 Expressions(표현식) 사용가능</h4>
+<p>break 문 없애는 대신에 화살표, 중괄호 사용</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch04.sec03</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwitchExpressionsExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">char</span> <span class="n">grade</span> <span class="o">=</span> <span class="sc">'B'</span><span class="o">;</span>
+
+        <span class="k">switch</span> <span class="o">(</span><span class="n">grade</span><span class="o">){</span>
+            <span class="k">case</span> <span class="sc">'A'</span><span class="o">,</span> <span class="sc">'a'</span><span class="o">-&gt;{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"우수 회원입니다."</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">case</span> <span class="sc">'B'</span><span class="o">,</span> <span class="sc">'b'</span><span class="o">-&gt;{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"일반 회원입니다."</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">default</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"손님입니다."</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">switch</span><span class="o">(</span><span class="n">grade</span><span class="o">){</span>
+            <span class="k">case</span> <span class="sc">'A'</span><span class="o">,</span> <span class="sc">'a'</span><span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"우수 회원입니다."</span><span class="o">);</span>
+            <span class="k">case</span> <span class="sc">'B'</span><span class="o">,</span> <span class="sc">'b'</span><span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"일반 회원입니다."</span><span class="o">);</span>
+            <span class="k">default</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"손님입니다."</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h4 id="스위치된-값을-변수에-바로-대입도-가능">스위치된 값을 변수에 바로 대입도 가능</h4>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch04.sec03</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwitchValueExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">grade</span> <span class="o">=</span> <span class="s">"B"</span><span class="o">;</span>
+
+        <span class="c1">//Java 11 이전 문법</span>
+        <span class="kt">int</span> <span class="n">score1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">switch</span><span class="o">(</span><span class="n">grade</span><span class="o">){</span>
+            <span class="k">case</span> <span class="s">"A"</span><span class="o">:</span>
+                <span class="n">score1</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"B"</span><span class="o">:</span>
+                <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span><span class="o">-</span><span class="mi">20</span><span class="o">;</span>
+                <span class="n">score1</span> <span class="o">=</span> <span class="n">result</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="n">score1</span> <span class="o">=</span> <span class="mi">60</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"score1: "</span><span class="o">+</span><span class="n">score1</span><span class="o">);</span>
+
+        <span class="c1">//Java 12부터 가능</span>
+        <span class="kt">int</span> <span class="n">score2</span> <span class="o">=</span> <span class="k">switch</span><span class="o">(</span><span class="n">grade</span><span class="o">){</span>
+            <span class="k">case</span> <span class="s">"A"</span> <span class="o">-&gt;</span> <span class="mi">100</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"B"</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span><span class="o">-</span><span class="mi">20</span><span class="o">;</span>
+                <span class="c1">//Java 13부터 가능</span>
+                <span class="n">yield</span> <span class="n">result</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">default</span> <span class="o">-&gt;</span> <span class="mi">60</span><span class="o">;</span>
+        <span class="o">};</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"score2: "</span><span class="o">+</span><span class="n">score2</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다, 122page</li>
+</ul>
+:ET

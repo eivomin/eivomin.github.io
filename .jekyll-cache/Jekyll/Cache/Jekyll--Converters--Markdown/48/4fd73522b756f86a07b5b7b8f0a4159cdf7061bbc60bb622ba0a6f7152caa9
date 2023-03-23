@@ -1,0 +1,63 @@
+I"<h2 id="메소드-오버라이딩">메소드 오버라이딩</h2>
+
+<hr />
+
+<h3 id="메소드-오버라이딩-1">메소드 오버라이딩</h3>
+<p>메소드 오버라이딩은 상속된 메소드를 자식 클래스에서 재정의하는 것을 말한다.<br />
+메소드 오버라이딩되었다면 해당 부모 메소드는 숨겨지고, 자식 메소드가 우선적으로 사용된다.</p>
+
+<p>메소드 오버라이딩할 때는 다음과 같은 규칙에 주의해서 작성해야 한다.</p>
+<ul>
+  <li>부모 메소드의 선언부(리턴 타입, 메소드 이름, 매개변수)와 동일해야 한다.</li>
+  <li>접근 제한을 더 강하게 오버라이딩할 수 없다(public → private으로 변경 불가)</li>
+  <li>새로운 예외를 throws할 수 없다</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec04.exam01</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Calculator</span> <span class="o">{</span>
+    <span class="c1">//메소드 선언</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">areaCircle</span><span class="o">(</span><span class="kt">double</span> <span class="n">r</span><span class="o">){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Calculator 객체의 areaCircle() 실행"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="mf">3.14159</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec04.exam01</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Computer</span> <span class="kd">extends</span> <span class="nc">Calculator</span><span class="o">{</span>
+    <span class="c1">//메소드 오버라이딩</span>
+    <span class="nd">@Override</span> <span class="c1">// 컴파일 시 정확히 오버라이딩이 되었는지 체크해 줌 (생략 가능)</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">areaCircle</span><span class="o">(</span><span class="kt">double</span> <span class="n">r</span><span class="o">){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Computer 객체의 areaCircle() 실행"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch07.sec04.exam01</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComputerExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+
+        <span class="nc">Calculator</span> <span class="n">calculator</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Calculator</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"원 면적: "</span><span class="o">+</span><span class="n">calculator</span><span class="o">.</span><span class="na">areaCircle</span><span class="o">(</span><span class="n">r</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">Computer</span> <span class="n">computer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Computer</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"원 면적: "</span><span class="o">+</span><span class="n">computer</span><span class="o">.</span><span class="na">areaCircle</span><span class="o">(</span><span class="n">r</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET

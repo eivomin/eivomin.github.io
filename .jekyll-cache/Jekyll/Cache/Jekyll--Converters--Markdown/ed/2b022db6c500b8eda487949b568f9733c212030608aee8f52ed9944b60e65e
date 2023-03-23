@@ -1,0 +1,148 @@
+I"�7<h2 id="comparable과-comparator">Comparable과 Comparator</h2>
+
+<hr />
+
+<p>TreeSet에 저장되는 객체와 TreeMap에 저장되는 키 객체는 저장과 동시에 오름차순으로 정렬되는데, 
+어떤 객체든 정렬될 수 있는 것은 아니고 객체가 Comparable 인터페이스를 구현하고 있어야 가능하다. 
+Integer, Double, String 타입은 모두 Comparable을 구현하고 있기 때문에 상관 없지만, 
+사용자 정의 객체를 저장할 때에는 반드시 Comparable을 구현하고 있어야 한다.
+Comparable 인터페이스에는 compareTo() 메소드가 정의되어 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>리턴 타입</th>
+      <th>메소드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>int</td>
+      <td>compareTo(T o)</td>
+      <td>주어진 객체와 같으면 0을 리턴<br />주어진 객체보다 적으면 음수를 리턴<br />주어진 객체보다 크면 양수를 리턴</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec05.exam03</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Person</span> <span class="n">o</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">age</span><span class="o">&lt;</span><span class="n">o</span><span class="o">.</span><span class="na">age</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">age</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="na">age</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec05.exam03</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComparableExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//TreeSet 컬렉션 생성</span>
+        <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="n">treeSet</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;();</span>
+
+        <span class="c1">//객체 저장</span>
+        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"홍길동"</span><span class="o">,</span> <span class="mi">45</span><span class="o">));</span>
+        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"감자바"</span><span class="o">,</span> <span class="mi">25</span><span class="o">));</span>
+        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"박지원"</span><span class="o">,</span> <span class="mi">31</span><span class="o">));</span>
+
+        <span class="c1">//객체를 하나씩 가져오기</span>
+        <span class="k">for</span><span class="o">(</span><span class="nc">Person</span> <span class="n">person</span> <span class="o">:</span> <span class="n">treeSet</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span><span class="n">person</span><span class="o">.</span><span class="na">age</span><span class="o">);</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>비교 기능이 있는 Comparable 구현 객체를 TreeSet에 저장하거나 TreeMap의 키로 저장하는 것이 원칙이지만, 
+비교 기능이 없는 Comparable 비구현 객체를 저장하고 싶다면 방법은 없진 않다. TreeSet과 TreeMap을 생성할 때 비교자(Comparator)를 다음과 같이 제공하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">treeSet</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;(</span><span class="k">new</span> <span class="nc">ComparatorImpl</span><span class="o">());</span>
+    <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">treeMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span><span class="no">V</span><span class="o">&gt;(</span><span class="k">new</span> <span class="nc">ComparatorImpl</span><span class="o">());</span>
+</code></pre></div></div>
+
+<p>비교자는 Comparator 인터페이스를 구현한 객체를 말하는데, Comparator 인터페이스에는 compare() 메소드가 정의되어 있다. 
+비교자는 이 메소드를 재정의해서 비교 결과를 정수 값으로 리턴하면 된다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>리턴 타입</th>
+      <th>메소드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>int</td>
+      <td>compare(T o1, T o2)</td>
+      <td>o1과 o2가 동등하다면 0을 리턴<br />o1이 o2보다 앞에 오게 하려면 음수를 리턴 <br />o1이 o2보다 뒤에 오게 하려면 양수를 리턴</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec05.exam04</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Fruit</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">price</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Fruit</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">price</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">price</span> <span class="o">=</span> <span class="n">price</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec05.exam04</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FruitComparator</span> <span class="kd">implements</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">Fruit</span><span class="o">&gt;{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">Fruit</span> <span class="n">o1</span><span class="o">,</span> <span class="nc">Fruit</span> <span class="n">o2</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">o1</span><span class="o">.</span><span class="na">price</span><span class="o">&lt;</span><span class="n">o2</span><span class="o">.</span><span class="na">price</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">o1</span><span class="o">.</span><span class="na">price</span> <span class="o">==</span> <span class="n">o2</span><span class="o">.</span><span class="na">price</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ch15.sec05.exam04</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComparatorExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//비교자를 제공한 TreeSet 컬렉션 생성</span>
+        <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="nc">Fruit</span><span class="o">&gt;</span> <span class="n">treeSet</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="nc">Fruit</span><span class="o">&gt;(</span><span class="k">new</span> <span class="nc">FruitComparator</span><span class="o">());</span>
+
+        <span class="c1">//객체 저장</span>
+        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Fruit</span><span class="o">(</span><span class="s">"포도"</span><span class="o">,</span> <span class="mi">3000</span><span class="o">));</span>
+        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Fruit</span><span class="o">(</span><span class="s">"수박"</span><span class="o">,</span> <span class="mi">10000</span><span class="o">));</span>
+        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Fruit</span><span class="o">(</span><span class="s">"딸기"</span><span class="o">,</span> <span class="mi">6000</span><span class="o">));</span>
+
+        <span class="c1">//객체를 하나씩 가져오기</span>
+        <span class="k">for</span><span class="o">(</span><span class="nc">Fruit</span> <span class="n">fruit</span> <span class="o">:</span> <span class="n">treeSet</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fruit</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">":"</span><span class="o">+</span><span class="n">fruit</span><span class="o">.</span><span class="na">price</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>출처: 이것이 자바다</li>
+</ul>
+:ET
