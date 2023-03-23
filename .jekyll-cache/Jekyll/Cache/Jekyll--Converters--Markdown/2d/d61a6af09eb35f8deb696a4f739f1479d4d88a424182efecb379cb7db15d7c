@@ -1,0 +1,15 @@
+I"4<ul class="toc__menu">
+  <li><a href="#웹개발-종합반-3주차">웹개발 종합반 3주차</a>
+      - {:.} <a href="#foreach문으로-반복을-돌면서-하나씩-출력-">forEach문으로 반복을 돌면서, 하나씩 출력 </a>
+      - {:.} <a href="#repeat">repeat()</a>
+      - {:.} <a href="#가상환경virtual-environment">가상환경(virtual environment)</a>
+      - {:.} <a href="#크롤링-기본-세팅">크롤링 기본 세팅</a>
+      - {:.} <a href="#select--select_one">select / select_one</a>
+      - {:.} <a href="#pymongo-기본-코드">pymongo 기본 코드</a>
+      - {:.} <a href="#pymongo로-mongodb-조작하기">pymongo로 mongoDB 조작하기</a>
+    <ul>
+      <li><a href="#3주차-숙제--스크래핑-하기">3주차 숙제 : 스크래핑 하기</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

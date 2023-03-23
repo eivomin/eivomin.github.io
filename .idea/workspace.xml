@@ -7,40 +7,36 @@
     <list default="true" id="a28f0e83-6838-4781-ab69-c9c795de5a39" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7/9606fb3afea5bd1609ed40b622142f1c98125abcfe89a76a661b0e8e343910" beforeDir="false" afterPath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7/9606fb3afea5bd1609ed40b622142f1c98125abcfe89a76a661b0e8e343910" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/6e/d505f2833884e7ca3c3007771106ac49eb9d77ab48b06fe4b0e3af8ab0000e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/92/be41c5de7a76e73c928b1121c22d58ad63f95dd281fb2361c5deac9d524e7a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/0c/49b44e316ff5eff4156c04636a365bc54ea826d45589b02a7f30c476bbc9e4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/44/36e4f205ae433d0c4d760822e939316ffb8bf71b2552046f376b3af556e921" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/46/ffebcd91b9115a4c5fbccf9334033df42819e45bf76a8ea475fc21c53e2e0c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/98/5839d9b52bc87467c3f6746ef3af791fb258660fa10d9f9b7473d113cdc29a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/head/custom.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head/custom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/a1/cebdb09141073c2a35bac8ed5202873f06ba3cd20711d76f1edbc5dbdf689e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/17/1dd806ab461e25d65778be395453e6b6b8d0bbbe62715b2f2dd113e69a8b3d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/57/0b470ce95c675b935eb44df618fb50fe3d904c628e4461407dfff7171afccd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/be/b18d4dec2269c265bee3c866444bc383e1be35a06ec7385b86c7ec379cd6d6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/d2/84c45b622492f7aa2668ad8516e3cf7e6c3cc5ca6e49777051db4b4fa42c48" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/TIL/2023-03-20-TIL-웹개발 종합반 1주차.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/TIL/2023-03-20-TIL-웹개발 종합반 1주차.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/TIL/2023-03-20-TIL-웹개발 종합반 2주차.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/TIL/2023-03-20-TIL-웹개발 종합반 2주차.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/TIL/2023-03-21-TIL-웹개발 종합반 3주차.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/TIL/2023-03-21-TIL-웹개발 종합반 3주차.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/TIL/2023-03-21-TIL-웹개발 종합반 4주차.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/TIL/2023-03-21-TIL-웹개발 종합반 4주차.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/TIL/2023-03-22-TIL-웹개발 종합반 5주차.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/TIL/2023-03-22-TIL-웹개발 종합반 5주차.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_posts/TIL/2023-03-23-TIL-2023.03.23 TIL.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/TIL/2023-03-23-TIL-2023.03.23 TIL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/TIL/2023-03-24-TIL-2023.03.24 TIL.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/TIL/2023-03-24-TIL-2023.03.24 TIL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/minimal-mistakes/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/minimal-mistakes/_base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/minimal-mistakes/_page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/minimal-mistakes/_page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/minimal-mistakes/_reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/minimal-mistakes/_reset.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_sass/minimal-mistakes/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/minimal-mistakes/_sidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/Algorithm/algorithm-bfs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/Algorithm/algorithm-bfs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/Algorithm/algorithm-dfs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/Algorithm/algorithm-dfs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/Algorithm/algorithm-부분집합/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/Algorithm/algorithm-부분집합/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/Algorithm/algorithm-순열/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/Algorithm/algorithm-순열/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/Algorithm/algorithm-조합/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/Algorithm/algorithm-조합/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/Algorithm/algorithm-중복순열/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/Algorithm/algorithm-중복순열/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/Algorithm/algorithm-중복조합/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/Algorithm/algorithm-중복조합/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/Algorithm/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/Algorithm/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/images/interface02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/js/lunr/lunr-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/js/lunr/lunr-store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/baekjoon/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-10807-개수-세기/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-10807-개수-세기/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-10808-알파벳-개수/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-10808-알파벳-개수/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-11328-Strfry/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-11328-Strfry/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-1158-요세푸스-문제/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-1158-요세푸스-문제/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-13300-방-배정/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-13300-방-배정/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-1406-에디터/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-1406-에디터/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-1475-방-번호/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-1475-방-번호/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-1919-애너그램-만들기/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-1919-애너그램-만들기/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-2577-숫자의-개수/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-2577-숫자의-개수/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-3273-두-수의-합/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-3273-두-수의-합/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/category/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/category/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/baekjoon/백준-5397-키로거/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/baekjoon/백준-5397-키로거/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/java/Java-Comparable과-Comparator/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/java/Java-Comparable과-Comparator/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/java/Java-Iterator/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/java/Java-Iterator/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/java/Java-String-문자열-관련-Method/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/java/Java-String-문자열-관련-Method/index.html" afterDir="false" />
@@ -63,42 +59,6 @@
       <change beforePath="$PROJECT_DIR$/_site/java/Java-추상-클래스/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/java/Java-추상-클래스/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/java/Java-컬렉션-자료구조/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/java/Java-컬렉션-자료구조/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/java/Java-타입-변환/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/java/Java-타입-변환/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/java/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/java/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page10/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page10/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page11/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page11/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page12/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page12/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page13/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page13/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page14/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page14/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page15/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page15/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page16/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page16/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page17/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page17/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page18/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page18/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page19/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page19/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page20/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page20/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page21/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page21/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page22/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page22/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page23/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page23/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page24/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page24/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page25/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page25/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page26/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page26/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page27/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page27/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page28/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page28/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page29/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page29/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page30/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page30/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page31/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page31/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page32/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page32/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page33/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page33/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page34/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page34/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page35/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page35/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page5/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page6/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page6/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page7/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page7/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page8/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page8/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page9/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page9/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/programmers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/programmers/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/programmers/programmers-lv1-2016년/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/programmers/programmers-lv1-2016년/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/programmers/programmers-lv1-K번째수/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/programmers/programmers-lv1-K번째수/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/programmers/programmers-lv1-x만큼간격이있는n개의숫자/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/programmers/programmers-lv1-x만큼간격이있는n개의숫자/index.html" afterDir="false" />
@@ -163,8 +123,6 @@
       <change beforePath="$PROJECT_DIR$/_site/programmers/programmers-lv3-섬연결하기/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/programmers/programmers-lv3-섬연결하기/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/programmers/programmers-lv3-여행경로/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/programmers/programmers-lv3-여행경로/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/programmers/programmers-lv3-최고의집합/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/programmers/programmers-lv3-최고의집합/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/project/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/project/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/swea/D2-1204-최빈수-구하기/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/swea/D2-1204-최빈수-구하기/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/swea/D2-1284-수도-요금-경쟁/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/swea/D2-1284-수도-요금-경쟁/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/swea/D2-1285-아름이의-돌-던지기/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/swea/D2-1285-아름이의-돌-던지기/index.html" afterDir="false" />
@@ -232,16 +190,13 @@
       <change beforePath="$PROJECT_DIR$/_site/swea/D4-1258-행렬찾기/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/swea/D4-1258-행렬찾기/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/swea/D4-1861-정사각형-방/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/swea/D4-1861-정사각형-방/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/swea/D4-3289-서로소-집합/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/swea/D4-3289-서로소-집합/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/swea/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/swea/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/til/TIL-2023.03.23-TIL/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/til/TIL-2023.03.23-TIL/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/til/TIL-2023.03.24-TIL/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/til/TIL-2023.03.24-TIL/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-1주차/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-1주차/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-2주차/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-2주차/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-3주차/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-3주차/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-4주차/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-4주차/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-5주차/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/til/TIL-웹개발-종합반-5주차/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/til/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/til/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/interface02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
