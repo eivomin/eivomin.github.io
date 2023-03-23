@@ -865,7 +865,27 @@ var store = [{
         "url": "http://localhost:4000/java/Java-%EC%8A%A4%ED%8A%B8%EB%A6%BC/",
         "teaser":null},{
         "title": "[TIL] 2023.03.23 TIL",
-        "excerpt":"2023.03.23 TIL 자바 공부 Java - 스트림 정리 알고리즘 (참고. https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook/0x03.md) 구분 문제 분류 문제 문제 제목 풀이 url 추가 개념 배열 연습 문제 10808 알파벳 개수 정답 코드   배열 기본 문제✔ 2577 숫자의 개수 정답 코드   배열 기본 문제✔ 1475 방 번호 정답 코드   배열 기본...","categories": ["TIL"],
+        "excerpt":"2023.03.23 TIL 자바 공부 Java - 스트림 정리 알고리즘 구분 문제 분류 문제 문제 제목 풀이 url 추가 개념 배열 연습 문제 10808 알파벳 개수 정답 코드   배열 기본 문제✔ 2577 숫자의 개수 정답 코드   배열 기본 문제✔ 1475 방 번호 정답 코드   배열 기본 문제✔ 3273...","categories": ["TIL"],
         "tags": [],
         "url": "http://localhost:4000/til/TIL-2023.03.23-TIL/",
+        "teaser":null},{
+        "title": "[백준] 1158. 요세푸스 문제",
+        "excerpt":"1158. 요세푸스 문제 Code package baekjoon; import java.util.*; import java.io.*; public class 요세푸스문제_1158 { public static void main(String[] args) throws IOException { BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); StringTokenizer st = new StringTokenizer(br.readLine(), \" \"); int N = Integer.parseInt(st.nextToken()); int K = Integer.parseInt(st.nextToken()); Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;(); for(int i=1;...","categories": ["Baekjoon"],
+        "tags": [],
+        "url": "http://localhost:4000/baekjoon/%EB%B0%B1%EC%A4%80-1158-%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4-%EB%AC%B8%EC%A0%9C/",
+        "teaser":null},{
+        "title": "[백준] 1406. 에디터",
+        "excerpt":"1406. 에디터 Code package baekjoon; import java.io.*; import java.util.*; public class 에디터_1406 { public static void main(String[] args) throws IOException { BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); String str = br.readLine(); Stack&lt;String&gt; lstack = new Stack&lt;&gt;(); Stack&lt;String&gt; rstack = new Stack&lt;&gt;(); int len = str.length(); for(int i=0; i&lt;len; i++) lstack.add(str.charAt(i)+\"\");...","categories": ["Baekjoon"],
+        "tags": [],
+        "url": "http://localhost:4000/baekjoon/%EB%B0%B1%EC%A4%80-1406-%EC%97%90%EB%94%94%ED%84%B0/",
+        "teaser":null},{
+        "title": "[백준] 5397. 키로거",
+        "excerpt":"5397. 키로거 Code package baekjoon; import java.util.*; import java.io.*; public class 키로거_5397 { public static void main(String[] args) throws IOException { BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); int tc = Integer.parseInt(br.readLine()); for(int i=0; i&lt;tc; i++){ String str = br.readLine(); Stack&lt;String&gt; lstack = new Stack&lt;&gt;(); Stack&lt;String&gt; rstack = new Stack&lt;&gt;(); int...","categories": ["Baekjoon"],
+        "tags": [],
+        "url": "http://localhost:4000/baekjoon/%EB%B0%B1%EC%A4%80-5397-%ED%82%A4%EB%A1%9C%EA%B1%B0/",
+        "teaser":null},{
+        "title": "[TIL] 2023.03.24 TIL",
+        "excerpt":"2023.03.24 TIL 알고리즘 구분 문제 분류 문제 문제 제목 풀이 url 추가 개념 스택 연습 문제 10828 스택 추가   스택 기본 문제✔ 10773 제로 추가   스택 응용 문제✔ 1874 스택 수열 추가   스택 응용 문제✔ 2493 탑 추가   스택 응용 문제 6198 옥상 정원 꾸미기 추가...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL-2023.03.24-TIL/",
         "teaser":null}]

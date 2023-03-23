@@ -32,12 +32,12 @@
       /* calculate height of nav list
          viewport height - nav height - masthead x-padding
       */
-      height: calc(100vh - #{$nav-height} - 2em);
+      height: calc(95vh - #{$nav-height} - 2em);
     }
   }
 
   @include breakpoint($x-large) {
-    width: calc(#{$right-sidebar-width} - 1em);
+    width: calc(40vh - 1em);
   }
 
   > * {
@@ -117,8 +117,8 @@
 .author__avatar {
   display: table-cell;
   vertical-align: top;
-  width: 36px;
-  height: 36px;
+  width: 72px;
+  height: 72px;
 
   @include breakpoint($large) {
     display: block;

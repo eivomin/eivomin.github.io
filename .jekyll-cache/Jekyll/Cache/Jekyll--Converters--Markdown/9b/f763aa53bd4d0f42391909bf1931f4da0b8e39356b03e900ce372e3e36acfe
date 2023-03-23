@@ -1,4 +1,4 @@
-I"b<h2 id="20230323-til">2023.03.23 TIL</h2>
+I"T<h2 id="20230323-til">2023.03.23 TIL</h2>
 
 <hr />
 
@@ -6,7 +6,7 @@
 
 <p><a href="https://eivomin.github.io/java/Java-%EC%8A%A4%ED%8A%B8%EB%A6%BC/">Java - 스트림 정리</a></p>
 
-<h4 id="알고리즘-참고-httpsgithubcomencrypted-defbasic-algo-lectureblobmasterworkbook0x03md">알고리즘 (참고. <a href="https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook/0x03.md">https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook/0x03.md</a>)</h4>
+<h4 id="알고리즘">알고리즘</h4>
 
 <table>
   <thead>
@@ -84,13 +84,37 @@
       <td><a href="https://eivomin.github.io/baekjoon/%EB%B0%B1%EC%A4%80-1919-%EC%95%A0%EB%84%88%EA%B7%B8%EB%9E%A8-%EB%A7%8C%EB%93%A4%EA%B8%B0/">정답 코드</a></td>
       <td> </td>
     </tr>
+    <tr>
+      <td>연결리스트</td>
+      <td>연습 문제</td>
+      <td>1406</td>
+      <td><a href="https://www.acmicpc.net/problem/1406">에디터</a></td>
+      <td>추가</td>
+      <td>시간초과 → StringBuilder 사용하기!</td>
+    </tr>
+    <tr>
+      <td>연결리스트</td>
+      <td>기본 문제✔</td>
+      <td>5397</td>
+      <td><a href="https://www.acmicpc.net/problem/5397">키로거</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>연결리스트</td>
+      <td>기본 문제✔</td>
+      <td>1158</td>
+      <td><a href="https://www.acmicpc.net/problem/1158">요세푸스 문제</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
-<h4 id="참고">참고</h4>
-<ul>
-  <li><a href="https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md">https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md</a></li>
-</ul>
+<h4 id="️-참고-️">⭐️ 참고 ⭐️</h4>
+<p><a href="https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md">https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md</a></p>
 
-<h4 id="회고">회고</h4>
+<h4 id="회고-">회고 👩🏻‍💻📝</h4>
+<p>3년전에 풀었던 건데 기억이 안 난다.. 투포인터는 다시 공부해서 Algorithm 섹션에 적어놓아야겠다.<br />
+에디터 문제는 시간초과 났는데, System.out.println 말고 StringBuilder 사용해서 마지막에만 출력해주면 통과한다!</p>
 :ET

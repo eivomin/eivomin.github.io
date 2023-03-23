@@ -1,0 +1,90 @@
+I"	<h2 id="20230324-til">2023.03.24 TIL</h2>
+
+<hr />
+
+<h4 id="알고리즘">알고리즘</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>문제 분류</th>
+      <th>문제</th>
+      <th>문제 제목</th>
+      <th>풀이 url</th>
+      <th>추가 개념</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>스택</td>
+      <td>연습 문제</td>
+      <td>10828</td>
+      <td><a href="https://www.acmicpc.net/problem/10828">스택</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>스택</td>
+      <td>기본 문제✔</td>
+      <td>10773</td>
+      <td><a href="https://www.acmicpc.net/problem/10773">제로</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>스택</td>
+      <td>응용 문제✔</td>
+      <td>1874</td>
+      <td><a href="https://www.acmicpc.net/problem/1874">스택 수열</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>스택</td>
+      <td>응용 문제✔</td>
+      <td>2493</td>
+      <td><a href="https://www.acmicpc.net/problem/2493">탑</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>스택</td>
+      <td>응용 문제</td>
+      <td>6198</td>
+      <td><a href="https://www.acmicpc.net/problem/6198">옥상 정원 꾸미기</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>스택</td>
+      <td>응용 문제</td>
+      <td>17298</td>
+      <td><a href="https://www.acmicpc.net/problem/17298">오큰수</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>스택</td>
+      <td>응용 문제</td>
+      <td>3015</td>
+      <td><a href="https://www.acmicpc.net/problem/3015">오아시스 재결합</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>스택</td>
+      <td>응용 문제</td>
+      <td>6549</td>
+      <td><a href="https://www.acmicpc.net/problem/6549">히스토그램에서 가장 큰 직사각형</a></td>
+      <td>추가</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="️-참고-️">⭐️ 참고 ⭐️</h4>
+<p><a href="https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md">https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md</a></p>
+
+<h4 id="회고-">회고 👩🏻‍💻📝</h4>
+:ET

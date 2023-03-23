@@ -108,8 +108,8 @@ analytics:
 # Site Author
 author:
   name             : "eivomin"
-  avatar           : ""
-  bio              : "**기록이 자산!!**<br>매일 공부하고 있습니다.<br>소통을 좋아합니다. "
+  avatar           : "assets/images/main.jpeg"
+  bio              : "**개발 Blog**<br>👩🏻‍💻🖥💻⌨️📝💌<br>"
   location         : "Republic of Korea"
   email            :
   links:
