@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a28f0e83-6838-4781-ab69-c9c795de5a39" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/Programmers/2023-04-07-프로그래머스-lv1-음양 더하기.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/Programmers/2023-04-07-프로그래머스-lv1-음양 더하기.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/Programmers/2023-04-07-프로그래머스-lv1-핸드폰 번호 가리기.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/Programmers/2023-04-07-프로그래머스-lv1-핸드폰 번호 가리기.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_posts/TIL/2023-04-07-TIL-2023.04.07 TIL.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/TIL/2023-04-07-TIL-2023.04.07 TIL.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +64,7 @@
       <workItem from="1680787819886" duration="158000" />
       <workItem from="1680787985826" duration="698000" />
       <workItem from="1680824532733" duration="9047000" />
-      <workItem from="1680879190449" duration="76000" />
+      <workItem from="1680879190449" duration="4715000" />
     </task>
     <servers />
   </component>
